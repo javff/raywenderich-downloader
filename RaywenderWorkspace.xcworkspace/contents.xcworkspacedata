@@ -5,6 +5,9 @@
       location = "container:"
       name = "frontends">
       <FileRef
+         location = "group:RayDownloaderApp/RayDownloaderApp.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:RayWenderDownloader.xcodeproj">
       </FileRef>
    </Group>
