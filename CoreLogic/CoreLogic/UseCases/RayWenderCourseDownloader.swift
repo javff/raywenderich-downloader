@@ -8,37 +8,50 @@
 
 import Foundation
 
-class RayWenderCourseDownloader {
+public struct CourseViewModel {
+    public let items: [Downloader.Item]
+    public let name: String
+}
+
+public struct ProgressTaskViewModel {
+    public let total: Int
+    public let completed: Int
+    public let courseName: String
+}
+
+public class RayWenderCourseDownloader {
     
     let courseService = CourseContentService()
     let lessonsProvider: ItemsProviderProtocol
     var downloader: Downloader?
     
-    init(lessonsProvider: ItemsProviderProtocol = ItemsProvider()) {
+    public var progressSnapshot: ((ProgressTaskViewModel) -> Void)?
+    
+    public init(lessonsProvider: ItemsProviderProtocol = ItemsProvider()) {
         self.lessonsProvider = lessonsProvider
     }
     
-    func downloadFullCourseUsingId(courseId: Int, quality: Quality) {
-        print("scraping data ...")
+    public func getCourseLessons(courseId: Int, quality: Quality, completion: @escaping(Result<CourseViewModel, Error>) -> Void) {
         courseService.getCourse(courseId: courseId) { (response) in
             switch response {
             case .success(let course):
                 let items = self.getItemsForDownload(course, quality: quality)
-                let name = course.data?.courseName ?? UUID.init().uuidString
-                let storageFolder = FileUtils.getDocumentsDirectoryForNewFile(folderName: name)
-                self.prepareForDownload(items: items, saveIn: storageFolder)
+                let result = CourseViewModel(items: items, name: course.name)
+                completion(.success(result))
             case .failure(let error):
-                print(error.localizedDescription)
+                completion(.failure(error))
             }
         }
     }
-
+    
+    public func prepareDownload(course: CourseViewModel, saveIn folder: URL? = nil) {
+        let folder = folder ?? FileUtils.getDocumentsDirectoryForNewFile(folderName: course.name)
+        self.downloader = Downloader(items: course.items, folder: folder)
+        downloader?.start()
+    }
+    
+    //MARK - Private use cases
     private func getItemsForDownload(_ course: CourseModel, quality: Quality) -> [Downloader.Item] {
-        let name = course.data?.courseName ?? UUID.init().uuidString
-
-        print("Course name: \(name)")
-        print("Scrapping download information please a wait...")
-
         if course.lessons.isEmpty {
             return getTutorialForDownload(course, quality: quality)
         } else {
@@ -47,19 +60,23 @@ class RayWenderCourseDownloader {
     }
     
     private func getLessonsForDownload(_ course: CourseModel, quality: Quality) -> [Downloader.Item] {
-        
+        let snapshot = ProgressTaskViewModel(total: course.lessons.count, completed: 0, courseName: course.name)
+        progressSnapshot?(snapshot)
         var items: [Downloader.Item] = []
         for (index, lesson) in course.lessons.enumerated() {
             if let id = lesson.attributes?.video_identifier {
                 let lessonsInfo = self.lessonsProvider.getLessonsInfo(id: id).filter { $0.quality == quality }
                 let materials = getMaterialsForVideo(videoId: id, lessonPosition: index + 1)
                 let filename = lesson.attributes?.name ?? UUID.init().uuidString
-                let finalFilename = "\(index + 1)-\(filename)"
+                let current = index + 1
+                let finalFilename = "\(current)-\(filename)"
             
                 if let track = self.getTrackForVideo(videoId: id, videoName: finalFilename) {
                     items.append(track)
                 }
-                
+                    
+                let updateSnapshot = ProgressTaskViewModel(total: course.lessons.count, completed: current, courseName: course.name)
+                progressSnapshot?(updateSnapshot)
                 let lessonsItems = lessonsInfo
                     .enumerated()
                     .compactMap { $0.element.createDownloaderVideoItem(filename:  finalFilename)}
@@ -67,7 +84,6 @@ class RayWenderCourseDownloader {
                 items.append(contentsOf: materials)
             }
         }
- 
         return items
     }
     

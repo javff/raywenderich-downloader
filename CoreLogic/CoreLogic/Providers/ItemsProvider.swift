@@ -8,22 +8,24 @@
 
 import Foundation
 
-protocol ItemsProviderProtocol: class {
+public protocol ItemsProviderProtocol: class {
     func getLessonsInfo(id: Int) -> [VideoModel]
     func getTutorialInfo(url: URL) -> [VideoModel]
     func getVideoInfo(videoId: Int) -> VideoInfoModel?
     func getTrackForVideo(videoId: Int) -> URL?
-
 }
 
-class ItemsProvider: ItemsProviderProtocol {
+public class ItemsProvider: ItemsProviderProtocol {
+
 
     let semaphore = DispatchSemaphore(value: 0)
     let videoService = VideoService()
     let lessonService = LessonService()
     let videoPlayerService = VideoPlayerService()
     
-    func getLessonsInfo(id: Int) -> [VideoModel] {
+    public init() {}
+    
+    public func getLessonsInfo(id: Int) -> [VideoModel] {
         var results: [VideoModel] = []
         lessonService.getDownloadVideoInfo(lessonId: id) { (response) in
             switch response {
@@ -39,7 +41,7 @@ class ItemsProvider: ItemsProviderProtocol {
         return results
     }
     
-    func getTutorialInfo(url: URL) -> [VideoModel] {
+    public func getTutorialInfo(url: URL) -> [VideoModel] {
         
         var results: [VideoModel] = []
         
@@ -57,7 +59,7 @@ class ItemsProvider: ItemsProviderProtocol {
         return results
     }
     
-    func getVideoInfo(videoId: Int) -> VideoInfoModel? {
+    public func getVideoInfo(videoId: Int) -> VideoInfoModel? {
         
         var results: [VideoInfoModel] = []
         
@@ -75,7 +77,7 @@ class ItemsProvider: ItemsProviderProtocol {
         return results.first
     }
     
-    func getTrackForVideo(videoId: Int) -> URL? {
+    public func getTrackForVideo(videoId: Int) -> URL? {
         var urlResult: URL?
         
         videoPlayerService.getTextTrack(videoId: videoId) { (response) in

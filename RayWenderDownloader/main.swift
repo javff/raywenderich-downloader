@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-
+import CoreLogic
 
 func main() {
    
@@ -20,7 +19,20 @@ func main() {
     }
 
     let useCase = RayWenderCourseDownloader()
-    useCase.downloadFullCourseUsingId(courseId: id, quality: .sd)    
+    
+    useCase.progressSnapshot = { (snapshot) in
+        print(snapshot.courseName)
+        print(snapshot.completed)
+    }
+    
+    useCase.getCourseLessons(courseId: id, quality: .sd) { (response) in
+        switch response {
+        case .success(let data):
+            useCase.prepareDownload(course: data)
+        case .failure(let error):
+            print(error)
+        }
+    }
 }
 
 

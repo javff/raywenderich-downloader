@@ -14,10 +14,14 @@ struct CourseModel: Codable {
     var lessons: [LessonModel] {
         return included.filter{ $0.type == "contents" }
     }
+    
+    var name: String {
+        return data?.courseName ?? UUID.init().uuidString
+    }
 }
 
 
-enum Quality: String {
+public enum Quality: String {
     case sd = "sd_video_file"
     case hd = "hd_video_file"
 }

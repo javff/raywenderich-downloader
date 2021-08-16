@@ -9,9 +9,9 @@
 import Foundation
 
 
-class Downloader {
+public class Downloader {
     
-    struct Item {
+    public struct Item {
         let url: URL
         let filename: String
         let format: String
@@ -39,6 +39,11 @@ class Downloader {
     private let folder: URL
     private var downloadCompleted = 0
     
+    public var progress: (() -> Void)?
+    
+    public var startDownloadItem: ((Item) -> Void)?
+    public var finishedAllDownloads: (() -> Void)?
+    
     init(items: [Item], folder: URL) {
         self.items = items
         self.folder = folder
@@ -49,7 +54,6 @@ class Downloader {
         initQueue()
     }
 
-    
     func cancel() {
         self.queue.cancelAllOperations()
     }
@@ -62,7 +66,8 @@ class Downloader {
         let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: queue)
         
         let operations = items.map { (item) -> DownloaderItemOperation in
-            print("Init download \(item.filename).\(item.format)")
+//            print("Init download \(item.filename).\(item.format)")
+            self.startDownloadItem?(item)
             return DownloaderItemOperation(session: session, downloadTaskURL: item.url) { (tempDownloadedURL, _, _) in
                 if let url = tempDownloadedURL {
                     self.saveDownloadedItem(item, localDestinationFile: url)
@@ -70,11 +75,7 @@ class Downloader {
             }
         }
         self.queue.addOperations(operations, waitUntilFinished: true)
-        print("=========================================")
-        print("FINISHED!!!")
-        print("downloaded \(self.downloadCompleted) of \(self.items.count) files")
-        print("Storage in: \(self.folder.absoluteString)")
-        print("=========================================")
+        finishedAllDownloads?()
     }
     
     private func saveDownloadedItem(_ item: Item, localDestinationFile: URL) {

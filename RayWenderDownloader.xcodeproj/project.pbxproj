@@ -8,27 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E253FD6C24E605CC000F86D1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD6B24E605CC000F86D1 /* main.swift */; };
-		E253FD7424E606E2000F86D1 /* CourseContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD7324E606E2000F86D1 /* CourseContentService.swift */; };
-		E253FD7624E607D0000F86D1 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD7524E607D0000F86D1 /* BaseService.swift */; };
-		E253FD7824E61129000F86D1 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD7724E61129000F86D1 /* DownloadService.swift */; };
-		E253FD7B24E70B51000F86D1 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD7A24E70B51000F86D1 /* Downloader.swift */; };
-		E253FD7F24E71047000F86D1 /* RayWenderCourseDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD7E24E71047000F86D1 /* RayWenderCourseDownloader.swift */; };
-		E253FD8224E713A0000F86D1 /* AttributesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8124E713A0000F86D1 /* AttributesModel.swift */; };
-		E253FD8424E713B3000F86D1 /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8324E713B2000F86D1 /* LessonModel.swift */; };
-		E253FD8624E713BE000F86D1 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8524E713BE000F86D1 /* CourseModel.swift */; };
-		E253FD8924E9CFC3000F86D1 /* Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8824E9CFC3000F86D1 /* Clear.swift */; };
-		E253FD8B24E9D1AD000F86D1 /* InputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8A24E9D1AD000F86D1 /* InputReader.swift */; };
-		E253FD8D24EB3B4C000F86D1 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8C24EB3B4C000F86D1 /* VideoService.swift */; };
-		E253FD8F24EB3ED2000F86D1 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD8E24EB3ED2000F86D1 /* VideoModel.swift */; };
-		E253FD9124EB4E38000F86D1 /* DownloaderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD9024EB4E38000F86D1 /* DownloaderOperation.swift */; };
-		E253FD9424EB575C000F86D1 /* ItemsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD9324EB575C000F86D1 /* ItemsProvider.swift */; };
-		E253FD9824EB6D07000F86D1 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD9724EB6D07000F86D1 /* FileUtils.swift */; };
-		E28FB96A24F039740080EE2D /* String+FormatPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FB96924F039740080EE2D /* String+FormatPath.swift */; };
-		E29DEC7A24EDEDB500F3BED2 /* CustomErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DEC7924EDEDB500F3BED2 /* CustomErrorModel.swift */; };
-		E29DEC7C24EDEED100F3BED2 /* VideoPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DEC7B24EDEED100F3BED2 /* VideoPlayerService.swift */; };
-		E29DEC7E24EDF0E000F3BED2 /* TextTrackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DEC7D24EDF0E000F3BED2 /* TextTrackService.swift */; };
-		E29DEC8024EDF2B600F3BED2 /* StreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DEC7F24EDF2B600F3BED2 /* StreamModel.swift */; };
-		E29DEC8224EE0EDF00F3BED2 /* ScrapingUtls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29DEC8124EE0EDF00F3BED2 /* ScrapingUtls.swift */; };
+		E2927FC826CAC8E10036AA5C /* CoreLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2927FC726CAC8E10036AA5C /* CoreLogic.framework */; };
+		E2927FC926CAC8E10036AA5C /* CoreLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2927FC726CAC8E10036AA5C /* CoreLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E2927FD226CAC93E0036AA5C /* InputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FD126CAC93E0036AA5C /* InputReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,32 +23,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		E2927FCA26CAC8E10036AA5C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E2927FC926CAC8E10036AA5C /* CoreLogic.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E253FD6824E605CC000F86D1 /* RayWenderDownloader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RayWenderDownloader; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253FD6B24E605CC000F86D1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E253FD7324E606E2000F86D1 /* CourseContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseContentService.swift; sourceTree = "<group>"; };
-		E253FD7524E607D0000F86D1 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
-		E253FD7724E61129000F86D1 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
-		E253FD7A24E70B51000F86D1 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
-		E253FD7E24E71047000F86D1 /* RayWenderCourseDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RayWenderCourseDownloader.swift; path = RayWenderDownloader/RayWenderCourseDownloader.swift; sourceTree = SOURCE_ROOT; };
-		E253FD8124E713A0000F86D1 /* AttributesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesModel.swift; sourceTree = "<group>"; };
-		E253FD8324E713B2000F86D1 /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
-		E253FD8524E713BE000F86D1 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
-		E253FD8824E9CFC3000F86D1 /* Clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clear.swift; sourceTree = "<group>"; };
-		E253FD8A24E9D1AD000F86D1 /* InputReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputReader.swift; sourceTree = "<group>"; };
-		E253FD8C24EB3B4C000F86D1 /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
-		E253FD8E24EB3ED2000F86D1 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
-		E253FD9024EB4E38000F86D1 /* DownloaderOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderOperation.swift; sourceTree = "<group>"; };
-		E253FD9324EB575C000F86D1 /* ItemsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsProvider.swift; sourceTree = "<group>"; };
-		E253FD9724EB6D07000F86D1 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
-		E28FB96924F039740080EE2D /* String+FormatPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormatPath.swift"; sourceTree = "<group>"; };
-		E29DEC7924EDEDB500F3BED2 /* CustomErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorModel.swift; sourceTree = "<group>"; };
-		E29DEC7B24EDEED100F3BED2 /* VideoPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerService.swift; sourceTree = "<group>"; };
-		E29DEC7D24EDF0E000F3BED2 /* TextTrackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTrackService.swift; sourceTree = "<group>"; };
-		E29DEC7F24EDF2B600F3BED2 /* StreamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamModel.swift; sourceTree = "<group>"; };
-		E29DEC8124EE0EDF00F3BED2 /* ScrapingUtls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapingUtls.swift; sourceTree = "<group>"; };
+		E2927FC726CAC8E10036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2927FD126CAC93E0036AA5C /* InputReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2927FC826CAC8E10036AA5C /* CoreLogic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				E253FD6A24E605CC000F86D1 /* RayWenderDownloader */,
+				E2927FC626CAC8E10036AA5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,71 +75,19 @@
 		E253FD6A24E605CC000F86D1 /* RayWenderDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				E253FD9224EB5750000F86D1 /* Providers */,
-				E253FD8024E71394000F86D1 /* Models */,
-				E253FD7224E606BE000F86D1 /* Api */,
-				E253FD7D24E7100B000F86D1 /* Utils */,
-				E253FD7C24E70FED000F86D1 /* UseCases */,
+				E2927FD126CAC93E0036AA5C /* InputReader.swift */,
 				E253FD6B24E605CC000F86D1 /* main.swift */,
 				E253FD6924E605CC000F86D1 /* Products */,
 			);
 			path = RayWenderDownloader;
 			sourceTree = "<group>";
 		};
-		E253FD7224E606BE000F86D1 /* Api */ = {
+		E2927FC626CAC8E10036AA5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E253FD7324E606E2000F86D1 /* CourseContentService.swift */,
-				E253FD7524E607D0000F86D1 /* BaseService.swift */,
-				E253FD7724E61129000F86D1 /* DownloadService.swift */,
-				E253FD8C24EB3B4C000F86D1 /* VideoService.swift */,
-				E29DEC7B24EDEED100F3BED2 /* VideoPlayerService.swift */,
-				E29DEC7D24EDF0E000F3BED2 /* TextTrackService.swift */,
+				E2927FC726CAC8E10036AA5C /* CoreLogic.framework */,
 			);
-			path = Api;
-			sourceTree = "<group>";
-		};
-		E253FD7C24E70FED000F86D1 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				E253FD7E24E71047000F86D1 /* RayWenderCourseDownloader.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		E253FD7D24E7100B000F86D1 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				E253FD7A24E70B51000F86D1 /* Downloader.swift */,
-				E253FD8824E9CFC3000F86D1 /* Clear.swift */,
-				E253FD8A24E9D1AD000F86D1 /* InputReader.swift */,
-				E253FD9024EB4E38000F86D1 /* DownloaderOperation.swift */,
-				E253FD9724EB6D07000F86D1 /* FileUtils.swift */,
-				E29DEC8124EE0EDF00F3BED2 /* ScrapingUtls.swift */,
-				E28FB96924F039740080EE2D /* String+FormatPath.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		E253FD8024E71394000F86D1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E253FD8124E713A0000F86D1 /* AttributesModel.swift */,
-				E253FD8324E713B2000F86D1 /* LessonModel.swift */,
-				E253FD8524E713BE000F86D1 /* CourseModel.swift */,
-				E253FD8E24EB3ED2000F86D1 /* VideoModel.swift */,
-				E29DEC7924EDEDB500F3BED2 /* CustomErrorModel.swift */,
-				E29DEC7F24EDF2B600F3BED2 /* StreamModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E253FD9224EB5750000F86D1 /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-				E253FD9324EB575C000F86D1 /* ItemsProvider.swift */,
-			);
-			path = Providers;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +100,7 @@
 				E253FD6424E605CC000F86D1 /* Sources */,
 				E253FD6524E605CC000F86D1 /* Frameworks */,
 				E253FD6624E605CC000F86D1 /* CopyFiles */,
+				E2927FCA26CAC8E10036AA5C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,28 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E253FD8624E713BE000F86D1 /* CourseModel.swift in Sources */,
-				E253FD8D24EB3B4C000F86D1 /* VideoService.swift in Sources */,
-				E253FD9124EB4E38000F86D1 /* DownloaderOperation.swift in Sources */,
-				E253FD7B24E70B51000F86D1 /* Downloader.swift in Sources */,
-				E253FD8B24E9D1AD000F86D1 /* InputReader.swift in Sources */,
-				E29DEC8024EDF2B600F3BED2 /* StreamModel.swift in Sources */,
-				E29DEC7A24EDEDB500F3BED2 /* CustomErrorModel.swift in Sources */,
-				E253FD8424E713B3000F86D1 /* LessonModel.swift in Sources */,
-				E253FD8924E9CFC3000F86D1 /* Clear.swift in Sources */,
-				E29DEC7C24EDEED100F3BED2 /* VideoPlayerService.swift in Sources */,
-				E253FD7F24E71047000F86D1 /* RayWenderCourseDownloader.swift in Sources */,
-				E253FD8224E713A0000F86D1 /* AttributesModel.swift in Sources */,
-				E28FB96A24F039740080EE2D /* String+FormatPath.swift in Sources */,
-				E253FD8F24EB3ED2000F86D1 /* VideoModel.swift in Sources */,
-				E253FD7424E606E2000F86D1 /* CourseContentService.swift in Sources */,
-				E29DEC7E24EDF0E000F3BED2 /* TextTrackService.swift in Sources */,
-				E253FD9824EB6D07000F86D1 /* FileUtils.swift in Sources */,
-				E253FD7824E61129000F86D1 /* DownloadService.swift in Sources */,
-				E253FD9424EB575C000F86D1 /* ItemsProvider.swift in Sources */,
 				E253FD6C24E605CC000F86D1 /* main.swift in Sources */,
-				E253FD7624E607D0000F86D1 /* BaseService.swift in Sources */,
-				E29DEC8224EE0EDF00F3BED2 /* ScrapingUtls.swift in Sources */,
+				E2927FD226CAC93E0036AA5C /* InputReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

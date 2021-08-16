@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VideoInfoModel: Codable {
+public struct VideoInfoModel: Codable {
     let video: VideoModel?
     
     func downloaderAttachmentZipItems(lessonPosition: Int) -> [Downloader.Item] {
@@ -20,7 +20,7 @@ struct VideoInfoModel: Codable {
     }
 }
 
-struct VideoModel: Codable {
+public struct VideoModel: Codable {
     let attributes: AttributesModel?
     let attachments: [AttachmentModel]?
     let name: String?
