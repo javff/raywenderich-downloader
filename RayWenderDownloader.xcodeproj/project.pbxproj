@@ -3,14 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E253FD6C24E605CC000F86D1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253FD6B24E605CC000F86D1 /* main.swift */; };
-		E2927FC826CAC8E10036AA5C /* CoreLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2927FC726CAC8E10036AA5C /* CoreLogic.framework */; };
-		E2927FC926CAC8E10036AA5C /* CoreLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2927FC726CAC8E10036AA5C /* CoreLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E2927FD226CAC93E0036AA5C /* InputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FD126CAC93E0036AA5C /* InputReader.swift */; };
+		E2FDE0D126E7CF8E0017220A /* BussinnesLogic in Frameworks */ = {isa = PBXBuildFile; productRef = E2FDE0D026E7CF8E0017220A /* BussinnesLogic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,24 +21,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		E2927FCA26CAC8E10036AA5C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E2927FC926CAC8E10036AA5C /* CoreLogic.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E253FD6824E605CC000F86D1 /* RayWenderDownloader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RayWenderDownloader; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253FD6B24E605CC000F86D1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E2927FC726CAC8E10036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2927FD126CAC93E0036AA5C /* InputReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2927FC826CAC8E10036AA5C /* CoreLogic.framework in Frameworks */,
+				E2FDE0D126E7CF8E0017220A /* BussinnesLogic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +61,6 @@
 		E253FD6A24E605CC000F86D1 /* RayWenderDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				E2927FD126CAC93E0036AA5C /* InputReader.swift */,
 				E253FD6B24E605CC000F86D1 /* main.swift */,
 				E253FD6924E605CC000F86D1 /* Products */,
 			);
@@ -100,13 +85,15 @@
 				E253FD6424E605CC000F86D1 /* Sources */,
 				E253FD6524E605CC000F86D1 /* Frameworks */,
 				E253FD6624E605CC000F86D1 /* CopyFiles */,
-				E2927FCA26CAC8E10036AA5C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RayWenderDownloader;
+			packageProductDependencies = (
+				E2FDE0D026E7CF8E0017220A /* BussinnesLogic */,
+			);
 			productName = RayWenderDownloader;
 			productReference = E253FD6824E605CC000F86D1 /* RayWenderDownloader */;
 			productType = "com.apple.product-type.tool";
@@ -118,7 +105,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Juan Andres Vasquez Ferrer";
 				TargetAttributes = {
 					E253FD6724E605CC000F86D1 = {
@@ -150,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E253FD6C24E605CC000F86D1 /* main.swift in Sources */,
-				E2927FD226CAC93E0036AA5C /* InputReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +169,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -243,6 +230,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -273,6 +261,7 @@
 		E253FD7024E605CC000F86D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -283,6 +272,7 @@
 		E253FD7124E605CC000F86D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +302,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2FDE0D026E7CF8E0017220A /* BussinnesLogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BussinnesLogic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E253FD6024E605CC000F86D1 /* Project object */;
 }

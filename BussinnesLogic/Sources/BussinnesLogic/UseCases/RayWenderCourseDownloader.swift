@@ -8,6 +8,13 @@
 
 import Foundation
 
+open class TestClass {
+    
+    public init() {
+        
+    }
+}
+
 public struct CourseViewModel {
     public let items: [Downloader.Item]
     public let name: String

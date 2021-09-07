@@ -16,7 +16,7 @@ public class Downloader {
         let filename: String
         let format: String
         
-        var fullname: String {
+        public var fullname: String {
             return filename.formatPath()
         }
     

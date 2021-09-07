@@ -9,12 +9,17 @@
 import Foundation
 
 
-class InputReader {
+public class InputReader {
     
-    class func readURLInput() -> Int? {
+    public class func readURLInput() -> Int? {
         guard let stdURL = readLine(strippingNewline: true) else {
             return nil
         }
+        return InputReader.getIdFromURL(stdURL: stdURL)
+      
+    }
+    
+    public class func getIdFromURL(stdURL: String) -> Int? {
         let splitBySlash = stdURL.split(separator: "/")
         guard splitBySlash.count >= 1 else { return nil }
         let splitBySlashRef = splitBySlash.count == 1 ? splitBySlash[0] : splitBySlash.last

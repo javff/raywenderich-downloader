@@ -15,7 +15,7 @@
       location = "container:"
       name = "Core">
       <FileRef
-         location = "group:CoreLogic/CoreLogic.xcodeproj">
+         location = "group:BussinnesLogic">
       </FileRef>
    </Group>
 </Workspace>

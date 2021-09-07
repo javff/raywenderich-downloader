@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BussinnesLogic
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF126CB1F320036AA5C /* Main.storyboard */; };
 		E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF426CB1F340036AA5C /* Assets.xcassets */; };
 		E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF626CB1F340036AA5C /* LaunchScreen.storyboard */; };
+		E2FDE0C926E7CB0C0017220A /* BussinnesLogic in Frameworks */ = {isa = PBXBuildFile; productRef = E2FDE0C826E7CB0C0017220A /* BussinnesLogic */; };
+		E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,14 @@
 		E2927FF426CB1F340036AA5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2927FF726CB1F340036AA5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2927FF926CB1F340036AA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E292800126CB1F8B0036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E292801126CB1FD80036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E292801626CB21050036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A686A126E7C40E0078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A686A526E7C4A20078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A686A926E7C7A80078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A686AD26E7C87E0078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FDE0C926E7CB0C0017220A /* BussinnesLogic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +53,7 @@
 			children = (
 				E2927FEA26CB1F320036AA5C /* RayDownloaderApp */,
 				E2927FE926CB1F320036AA5C /* Products */,
+				E292800026CB1F8B0036AA5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +75,23 @@
 				E2927FF426CB1F340036AA5C /* Assets.xcassets */,
 				E2927FF626CB1F340036AA5C /* LaunchScreen.storyboard */,
 				E2927FF926CB1F340036AA5C /* Info.plist */,
+				E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */,
 			);
 			path = RayDownloaderApp;
+			sourceTree = "<group>";
+		};
+		E292800026CB1F8B0036AA5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2A686AD26E7C87E0078A022 /* CoreLogic.framework */,
+				E2A686A926E7C7A80078A022 /* CoreLogic.framework */,
+				E2A686A526E7C4A20078A022 /* CoreLogic.framework */,
+				E2A686A126E7C40E0078A022 /* CoreLogic.framework */,
+				E292801626CB21050036AA5C /* CoreLogic.framework */,
+				E292801126CB1FD80036AA5C /* CoreLogic.framework */,
+				E292800126CB1F8B0036AA5C /* CoreLogic.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +110,9 @@
 			dependencies = (
 			);
 			name = RayDownloaderApp;
+			packageProductDependencies = (
+				E2FDE0C826E7CB0C0017220A /* BussinnesLogic */,
+			);
 			productName = RayDownloaderApp;
 			productReference = E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +170,7 @@
 				E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */,
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
+				E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +370,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2FDE0C826E7CB0C0017220A /* BussinnesLogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BussinnesLogic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E2927FE026CB1F320036AA5C /* Project object */;
 }

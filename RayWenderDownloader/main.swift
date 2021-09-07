@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreLogic
+import BussinnesLogic
 
 func main() {
    
