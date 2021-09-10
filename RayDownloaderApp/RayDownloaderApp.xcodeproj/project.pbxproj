@@ -13,6 +13,13 @@
 		E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF126CB1F320036AA5C /* Main.storyboard */; };
 		E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF426CB1F340036AA5C /* Assets.xcassets */; };
 		E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF626CB1F340036AA5C /* LaunchScreen.storyboard */; };
+		E2BA0EE626EBACFA0084D232 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EE526EBACFA0084D232 /* CoursesViewController.swift */; };
+		E2BA0EEB26EBAD500084D232 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E2BA0EEA26EBAD500084D232 /* PureLayout */; };
+		E2BA0EEE26EBAD740084D232 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EED26EBAD740084D232 /* CoursesView.swift */; };
+		E2BA0EF626EBB0950084D232 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EF526EBB0950084D232 /* AppRouter.swift */; };
+		E2BA0EF926EBB0F60084D232 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EF826EBB0F60084D232 /* Route.swift */; };
+		E2BA0EFD26EBB3D00084D232 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EFC26EBB3D00084D232 /* CourseCell.swift */; };
+		E2BA0F0026EBB3DC0084D232 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BA0EFF26EBB3DC0084D232 /* CourseCell.xib */; };
 		E2FDE0C926E7CB0C0017220A /* BussinnesLogic in Frameworks */ = {isa = PBXBuildFile; productRef = E2FDE0C826E7CB0C0017220A /* BussinnesLogic */; };
 		E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +40,13 @@
 		E2A686A526E7C4A20078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A686A926E7C7A80078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A686AD26E7C87E0078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2BA0EDE26EBA2A60084D232 /* RayDownloaderApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RayDownloaderApp.entitlements; sourceTree = "<group>"; };
+		E2BA0EE526EBACFA0084D232 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		E2BA0EED26EBAD740084D232 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
+		E2BA0EF526EBB0950084D232 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		E2BA0EF826EBB0F60084D232 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		E2BA0EFC26EBB3D00084D232 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		E2BA0EFF26EBB3DC0084D232 /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
 		E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2BA0EEB26EBAD500084D232 /* PureLayout in Frameworks */,
 				E2FDE0C926E7CB0C0017220A /* BussinnesLogic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +83,9 @@
 		E2927FEA26CB1F320036AA5C /* RayDownloaderApp */ = {
 			isa = PBXGroup;
 			children = (
+				E2BA0EF026EBB05F0084D232 /* Router */,
+				E2BA0EE426EBACEB0084D232 /* Courses */,
+				E2BA0EDE26EBA2A60084D232 /* RayDownloaderApp.entitlements */,
 				E2927FEB26CB1F320036AA5C /* AppDelegate.swift */,
 				E2927FED26CB1F320036AA5C /* SceneDelegate.swift */,
 				E2927FEF26CB1F320036AA5C /* ViewController.swift */,
@@ -94,6 +112,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E2BA0EE426EBACEB0084D232 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				E2BA0EE526EBACFA0084D232 /* CoursesViewController.swift */,
+				E2BA0EED26EBAD740084D232 /* CoursesView.swift */,
+				E2BA0EFC26EBB3D00084D232 /* CourseCell.swift */,
+				E2BA0EFF26EBB3DC0084D232 /* CourseCell.xib */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		E2BA0EF026EBB05F0084D232 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E2BA0EF526EBB0950084D232 /* AppRouter.swift */,
+				E2BA0EF826EBB0F60084D232 /* Route.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +150,7 @@
 			name = RayDownloaderApp;
 			packageProductDependencies = (
 				E2FDE0C826E7CB0C0017220A /* BussinnesLogic */,
+				E2BA0EEA26EBAD500084D232 /* PureLayout */,
 			);
 			productName = RayDownloaderApp;
 			productReference = E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */;
@@ -140,6 +179,9 @@
 				Base,
 			);
 			mainGroup = E2927FDF26CB1F320036AA5C;
+			packageReferences = (
+				E2BA0EE926EBAD500084D232 /* XCRemoteSwiftPackageReference "PureLayout" */,
+			);
 			productRefGroup = E2927FE926CB1F320036AA5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2BA0F0026EBB3DC0084D232 /* CourseCell.xib in Resources */,
 				E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */,
 				E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */,
 				E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */,
@@ -170,7 +213,12 @@
 				E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */,
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
+				E2BA0EFD26EBB3D00084D232 /* CourseCell.swift in Sources */,
 				E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */,
+				E2BA0EF626EBB0950084D232 /* AppRouter.swift in Sources */,
+				E2BA0EF926EBB0F60084D232 /* Route.swift in Sources */,
+				E2BA0EE626EBACFA0084D232 /* CoursesViewController.swift in Sources */,
+				E2BA0EEE26EBAD740084D232 /* CoursesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,14 +365,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RayDownloaderApp/RayDownloaderApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RayDownloaderApp/Info.plist;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = javff.RayDownloaderApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,14 +387,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RayDownloaderApp/RayDownloaderApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RayDownloaderApp/Info.plist;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = javff.RayDownloaderApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -371,7 +427,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E2BA0EE926EBAD500084D232 /* XCRemoteSwiftPackageReference "PureLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PureLayout/PureLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		E2BA0EEA26EBAD500084D232 /* PureLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2BA0EE926EBAD500084D232 /* XCRemoteSwiftPackageReference "PureLayout" */;
+			productName = PureLayout;
+		};
 		E2FDE0C826E7CB0C0017220A /* BussinnesLogic */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BussinnesLogic;
