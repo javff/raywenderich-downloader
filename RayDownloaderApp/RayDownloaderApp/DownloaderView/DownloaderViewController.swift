@@ -97,7 +97,7 @@ extension DownloaderViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let item = courses[indexPath.row]
-        cell.textLabel?.text = item.name
+        cell.textLabel?.text = item.lessonName
         return cell
     }
     

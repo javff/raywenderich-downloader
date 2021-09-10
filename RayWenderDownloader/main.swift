@@ -21,14 +21,19 @@ func main() {
     let useCase = RayWenderCourseDownloader()
     
     useCase.progressSnapshot = { (snapshot) in
+        print("---------------------")
         print(snapshot.courseName)
         print(snapshot.completed)
+        print("---------------------")
     }
     
     useCase.getCourseLessons(courseId: id, quality: .sd) { (response) in
         switch response {
         case .success(let data):
-            useCase.prepareDownload(course: data)
+            
+            data.forEach {
+                useCase.prepareDownload(course: $0)
+            }
         case .failure(let error):
             print(error)
         }

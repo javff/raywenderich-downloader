@@ -10,7 +10,14 @@ import Foundation
 
 public struct CourseViewModel {
     public let items: [Downloader.Item]
-    public let name: String
+    public let lessonName: String
+    public let courseName: String
+    
+    public init(items: [Downloader.Item], name: String, courseName: String) {
+        self.items = items
+        self.lessonName = name
+        self.courseName = courseName
+    }
 }
 
 public struct ProgressTaskViewModel {
@@ -23,7 +30,7 @@ public class RayWenderCourseDownloader {
     
     let courseService = CourseContentService()
     let lessonsProvider: ItemsProviderProtocol
-    var downloader: Downloader?
+    var downloaders: [Downloader] = []
     
     public var progressSnapshot: ((ProgressTaskViewModel) -> Void)?
     
@@ -36,7 +43,7 @@ public class RayWenderCourseDownloader {
             switch response {
             case .success(let course):
                 let items = self.getItemsForDownload(course, quality: quality)
-                let result = self.transformResponse(items: items)
+                let result = self.transformResponse(items: items, courseName: course.name)
                 completion(.success(result))
             case .failure(let error):
                 completion(.failure(error))
@@ -45,9 +52,10 @@ public class RayWenderCourseDownloader {
     }
     
     public func prepareDownload(course: CourseViewModel, saveIn folder: URL? = nil) {
-        let folder = folder ?? FileUtils.getDocumentsDirectoryForNewFile(folderName: course.name)
-        self.downloader = Downloader(items: course.items, folder: folder)
-        downloader?.start()
+        let folder = folder ?? FileUtils.getDocumentsDirectoryForNewFile(folderName: course.courseName)
+        let downloader = Downloader(items: course.items, folder: folder)
+        self.downloaders.append(downloader)
+        downloader.start()
     }
     
     //MARK - Private use cases
@@ -123,18 +131,13 @@ public class RayWenderCourseDownloader {
         return videoInfo.downloaderAttachmentZipItems(lessonPosition: lessonPosition)
     }
     
-    private func prepareForDownload(items: [Downloader.Item], saveIn folder: URL) {
-        self.downloader = Downloader(items: items, folder: folder)
-        downloader?.start()
-    }
-    
-    private func transformResponse(items: [Downloader.Item]) -> [CourseViewModel] {
+    private func transformResponse(items: [Downloader.Item], courseName: String) -> [CourseViewModel] {
         let groupedElements = items.group { (item) -> String in
             return item.fullname
         }
         
         let response = groupedElements.map { (key, data) -> CourseViewModel in
-            return CourseViewModel(items: data, name: key)
+            return CourseViewModel(items: data, name: key, courseName: courseName)
         }
         
         return response
