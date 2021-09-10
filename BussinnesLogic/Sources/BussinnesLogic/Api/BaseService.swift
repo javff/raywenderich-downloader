@@ -13,7 +13,7 @@ class BaseService: NSObject {
     var baseURL: String {
         return "https://api.raywenderlich.com/api"
     }
-    let authToken = "Token eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNWMwOTM2MC1kYjM1LTExZWEtODY0Ny0wMzRhZWQ2NDExMDIiLCJpYXQiOjE1OTczMzkyOTR9.f182UvYcemEA79WbjAeVKOY5ngjuwENhLyZ1znRpX58"
+    let authToken = "Token eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNWMwOTM2MC1kYjM1LTExZWEtODY0Ny0wMzRhZWQ2NDExMDIiLCJpYXQiOjE2MzEyODk4MDR9.PnTf5rSbuNPiY8xA8kZleOYFZhGF7EukjVRr4gRh6g8"
 
     let rmToken = "8a35bd79bca945f1991da36304d9c7f4"
 

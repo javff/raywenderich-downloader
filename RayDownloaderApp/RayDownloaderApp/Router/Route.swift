@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol Route {
-    
+enum Route {
+    case downloader(model: CourseFeedViewModel)
 }

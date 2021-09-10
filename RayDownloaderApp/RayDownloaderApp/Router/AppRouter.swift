@@ -10,7 +10,7 @@ import UIKit
 
 protocol AppRouterProtocol {
     func start()
-    func navigate()
+    func navigate(route: Route)
 }
 
 class AppRouter: AppRouterProtocol {
@@ -23,14 +23,24 @@ class AppRouter: AppRouterProtocol {
     }
     
     func start() {
-        let controller = CoursesViewController(router: self)
+        let repository = CoursesRepository()
+        let controller = CoursesViewController(router: self, repository: repository)
         let navController = UINavigationController(rootViewController: controller)
         self.navController = navController
         window.rootViewController = navController
         window.makeKeyAndVisible()
     }
     
-    func navigate() {
+    func navigate(route: Route) {
+        switch route {
+        case .downloader(model: let model):
+            self.navigateToDownloader(model)
         
+        }
+    }
+    
+    private func navigateToDownloader(_ model: CourseFeedViewModel) {
+        let controller = DownloaderViewController(model: model)
+        self.navController?.pushViewController(controller, animated: true)
     }
 }

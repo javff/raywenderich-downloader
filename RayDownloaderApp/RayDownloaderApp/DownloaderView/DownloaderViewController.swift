@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import PureLayout
 import BussinnesLogic
 
 class DownloaderViewController: UIViewController {
 
-    let url: URL
+    let model: CourseFeedViewModel
     let useCase = RayWenderCourseDownloader()
     
     var courses: [CourseViewModel] = []
@@ -19,11 +20,19 @@ class DownloaderViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
-    init(url: URL) {
-        self.url = url
+    lazy var progressView: UIProgressView = {
+        let progress = UIProgressView(progressViewStyle: .default)
+        progress.progressTintColor = .blue
+        progress.trackTintColor = .gray
+        return progress
+    }()
+    
+    init(model: CourseFeedViewModel) {
+        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,28 +51,29 @@ class DownloaderViewController: UIViewController {
     
     private func setupView() {
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        view.addSubview(progressView)
+        tableView.autoPinEdgesToSuperviewEdges()
+        progressView.autoCenterInSuperview()
+        progressView.autoSetDimensions(to: CGSize(width: 180, height: 40))
     }
     private func configureUseCase() {
         useCase.progressSnapshot = { (snapshot) in
-            print(snapshot.courseName)
-            print(snapshot.completed)
+            DispatchQueue.main.async {
+                let progress = Float(snapshot.completed) / Float(snapshot.total)
+                self.progressView.setProgress(progress, animated: true)
+            }
         }
     }
     
     private func start() {
-        guard let courseId = InputReader.getIdFromURL(stdURL: url.absoluteString) else { return }
-                
-        useCase.getCourseLessons(courseId: courseId, quality: .sd) { (response) in
+        guard let id = Int(model.id) else { return }
+        useCase.getCourseLessons(courseId: id, quality: .sd) { (response) in
+            DispatchQueue.main.async {
+                self.showProgress(false)
+            }
             switch response {
             case .success(let data):
-                self.courses.append(data)
+                self.courses = data
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -72,18 +82,22 @@ class DownloaderViewController: UIViewController {
             }
         }
     }
+    
+    private func showProgress(_ show: Bool = true) {
+        progressView.isHidden = !show
+    }
 }
 
 
 extension DownloaderViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.first?.items.count ?? 0
+        return courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let item = courses.first?.items[indexPath.row]
-        cell.textLabel?.text = item?.fullname
+        let item = courses[indexPath.row]
+        cell.textLabel?.text = item.name
         return cell
     }
     

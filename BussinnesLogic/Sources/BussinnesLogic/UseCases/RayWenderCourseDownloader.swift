@@ -8,13 +8,6 @@
 
 import Foundation
 
-open class TestClass {
-    
-    public init() {
-        
-    }
-}
-
 public struct CourseViewModel {
     public let items: [Downloader.Item]
     public let name: String
@@ -38,12 +31,12 @@ public class RayWenderCourseDownloader {
         self.lessonsProvider = lessonsProvider
     }
     
-    public func getCourseLessons(courseId: Int, quality: Quality, completion: @escaping(Result<CourseViewModel, Error>) -> Void) {
+    public func getCourseLessons(courseId: Int, quality: Quality, completion: @escaping(Result<[CourseViewModel], Error>) -> Void) {
         courseService.getCourse(courseId: courseId) { (response) in
             switch response {
             case .success(let course):
                 let items = self.getItemsForDownload(course, quality: quality)
-                let result = CourseViewModel(items: items, name: course.name)
+                let result = self.transformResponse(items: items)
                 completion(.success(result))
             case .failure(let error):
                 completion(.failure(error))
@@ -133,5 +126,17 @@ public class RayWenderCourseDownloader {
     private func prepareForDownload(items: [Downloader.Item], saveIn folder: URL) {
         self.downloader = Downloader(items: items, folder: folder)
         downloader?.start()
+    }
+    
+    private func transformResponse(items: [Downloader.Item]) -> [CourseViewModel] {
+        let groupedElements = items.group { (item) -> String in
+            return item.fullname
+        }
+        
+        let response = groupedElements.map { (key, data) -> CourseViewModel in
+            return CourseViewModel(items: data, name: key)
+        }
+        
+        return response
     }
 }

@@ -15,14 +15,16 @@ protocol CoursesViewDataSource: AnyObject {
 }
 
 protocol CoursesViewDelegate: AnyObject {
-    
+    func didSelect(item: CourseFeedViewModel)
 }
 
 struct CourseFeedViewModel {
+    let id: String
     let headline: String
     let platform: String
     let description: String
     let metaInfo: String
+    let imageUrl: String
 }
 
 class CoursesView: UIView {
@@ -30,7 +32,14 @@ class CoursesView: UIView {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.tableFooterView = UIView()
         return tableView
+    }()
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView(style: .large)
+        activity.hidesWhenStopped = true
+        return activity
     }()
     
     weak var delegate: CoursesViewDelegate?
@@ -53,7 +62,9 @@ class CoursesView: UIView {
     private func setupView() {
         setupCell()
         addSubview(tableView)
+        addSubview(activityIndicator)
         tableView.autoPinEdgesToSuperviewEdges()
+        activityIndicator.autoCenterInSuperview()
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -66,6 +77,14 @@ class CoursesView: UIView {
     
     func reloadData() {
         self.tableView.reloadData()
+    }
+    
+    func showLoading() {
+        activityIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        activityIndicator.stopAnimating()
     }
 }
 
@@ -83,5 +102,11 @@ extension CoursesView: UITableViewDataSource, UITableViewDelegate {
         let data = self.courses[indexPath.row]
         cell.bindView(data)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = self.courses[indexPath.row]
+        self.delegate?.didSelect(item: item)
     }
 }

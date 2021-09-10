@@ -12,8 +12,11 @@ class CoursesViewController: UIViewController {
     
     let courseView = CoursesView()
     let router: AppRouterProtocol
+    let repository: CoursesRepositoryProtocol
+    var courses: [CourseFeedViewModel] = []
     
-    init(router: AppRouterProtocol) {
+    init(router: AppRouterProtocol, repository: CoursesRepositoryProtocol) {
+        self.repository = repository
         self.router = router
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,21 +32,39 @@ class CoursesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        self.fetch()
     }
     
     private func setupView() {
         courseView.dataSource = self
+        courseView.delegate = self
         title = "Courses"
     }
+    
+    private func fetch() {
+        courseView.showLoading()
+        repository.getFeed { (response) in
+            self.courseView.stopLoading()
+            switch response {
+            case .success(let data):
+                self.courses = data
+                self.courseView.reloadData()
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }
 
-extension CoursesViewController: CoursesViewDataSource {
+extension CoursesViewController: CoursesViewDataSource, CoursesViewDelegate {
+    
     func getCourses() -> [CourseFeedViewModel] {
-        return [
-            CourseFeedViewModel(headline: "CoreHaptics",
-                                platform: "IOS & Swift",
-                                description: "learn how to create and play hatic pattern, synchornize audio with haptic events, and create dynamic haptic pattern that respond to external ..",
-                                metaInfo: "Sep 06 2021 .Video course (15 min)")
-        ]
+        return courses
+    }
+    
+    func didSelect(item: CourseFeedViewModel) {
+        router.navigate(route: .downloader(model: item))
     }
 }

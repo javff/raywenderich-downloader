@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class CourseCell: UITableViewCell {
     
@@ -21,5 +22,6 @@ class CourseCell: UITableViewCell {
         subtitle.text = data.platform
         contentDescription.text = data.description
         metaInfo.text = data.metaInfo
+        KF.url(URL(string: data.imageUrl)).set(to: contentImageView)
     }
 }
