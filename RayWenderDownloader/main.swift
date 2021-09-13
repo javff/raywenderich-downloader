@@ -32,7 +32,7 @@ func main() {
         case .success(let data):
             
             data.forEach {
-                useCase.prepareDownload(course: $0)
+                useCase.startDownload(course: $0)
             }
         case .failure(let error):
             print(error)

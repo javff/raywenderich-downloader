@@ -35,47 +35,45 @@ public class Downloader {
         return queue
     }()
     
-    private let items: [Item]
+    private let downloadSession: URLSession = {
+        let queue = OperationQueue()
+        queue.name = "com.domain.app.networkqueue"
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: queue)
+        return session
+    }()
+    
     private let folder: URL
     private var downloadCompleted = 0
     
     public var progress: (() -> Void)?
     
     public var startDownloadItem: ((Item) -> Void)?
-    public var finishedAllDownloads: (() -> Void)?
+    public var finishedDownload: ((Item) -> Void)?
     
-    init(items: [Item], folder: URL) {
-        self.items = items
+    init(folder: URL) {
         self.folder = folder
-    }
-    
-    func start() {
-        self.cancel()
-        initQueue()
     }
 
     func cancel() {
         self.queue.cancelAllOperations()
     }
-    
-    private func initQueue() {
         
-        let queue = OperationQueue()
-        queue.name = "com.domain.app.networkqueue"
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: queue)
-        
+    func addItems(items: [Item]) {
         let operations = items.map { (item) -> DownloaderItemOperation in
-//            print("Init download \(item.filename).\(item.format)")
             self.startDownloadItem?(item)
-            return DownloaderItemOperation(session: session, downloadTaskURL: item.url) { (tempDownloadedURL, _, _) in
+            return DownloaderItemOperation(session: self.downloadSession, downloadTaskURL: item.url) { (tempDownloadedURL, _, _) in
                 if let url = tempDownloadedURL {
                     self.saveDownloadedItem(item, localDestinationFile: url)
+                    self.finishedDownload?(item)
                 }
             }
         }
         self.queue.addOperations(operations, waitUntilFinished: true)
-        finishedAllDownloads?()
+    }
+    
+    func removeItems(items: [Operation]) {
+
     }
     
     private func saveDownloadedItem(_ item: Item, localDestinationFile: URL) {

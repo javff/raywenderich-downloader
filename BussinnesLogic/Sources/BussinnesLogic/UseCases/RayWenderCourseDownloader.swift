@@ -30,7 +30,7 @@ public class RayWenderCourseDownloader {
     
     let courseService = CourseContentService()
     let lessonsProvider: ItemsProviderProtocol
-    var downloaders: [Downloader] = []
+    var downloader: Downloader?
     
     public var progressSnapshot: ((ProgressTaskViewModel) -> Void)?
     
@@ -51,11 +51,10 @@ public class RayWenderCourseDownloader {
         }
     }
     
-    public func prepareDownload(course: CourseViewModel, saveIn folder: URL? = nil) {
+    public func startDownload(course: CourseViewModel, saveIn folder: URL? = nil) {
         let folder = folder ?? FileUtils.getDocumentsDirectoryForNewFile(folderName: course.courseName)
-        let downloader = Downloader(items: course.items, folder: folder)
-        self.downloaders.append(downloader)
-        downloader.start()
+        self.downloader = Downloader(folder: folder)
+        self.downloader?.addItems(items: course.items)
     }
     
     //MARK - Private use cases
