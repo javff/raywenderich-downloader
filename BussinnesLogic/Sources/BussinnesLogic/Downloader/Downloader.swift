@@ -16,6 +16,8 @@ public class Downloader {
         let filename: String
         let format: String
         
+        public var progress: ((Double) -> Void)?
+                
         public var fullname: String {
             return filename.formatPath()
         }
@@ -31,7 +33,7 @@ public class Downloader {
     
     private let queue: OperationQueue = {
         let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 1
+        queue.maxConcurrentOperationCount = 10
         return queue
     }()
     
@@ -46,10 +48,6 @@ public class Downloader {
     private let folder: URL
     private var downloadCompleted = 0
     
-    public var progress: (() -> Void)?
-    
-    public var startDownloadItem: ((Item) -> Void)?
-    public var finishedDownload: ((Item) -> Void)?
     
     init(folder: URL) {
         self.folder = folder
@@ -59,20 +57,23 @@ public class Downloader {
         self.queue.cancelAllOperations()
     }
         
-    func addItems(items: [Item]) {
-        let operations = items.map { (item) -> DownloaderItemOperation in
-            self.startDownloadItem?(item)
-            return DownloaderItemOperation(session: self.downloadSession, downloadTaskURL: item.url) { (tempDownloadedURL, _, _) in
+    
+    func startDownload(items: [Item]) {
+        let operations = items.enumerated().map { (index, item) -> DownloaderItemOperation in
+            let op = DownloaderItemOperation(session: self.downloadSession, downloadTaskURL: item.url) { (tempDownloadedURL, _, _) in
                 if let url = tempDownloadedURL {
                     self.saveDownloadedItem(item, localDestinationFile: url)
-                    self.finishedDownload?(item)
                 }
             }
+            
+            op.fractionCompleted = item.progress
+            return op
         }
-        self.queue.addOperations(operations, waitUntilFinished: true)
+        
+        self.queue.addOperations(operations, waitUntilFinished: false)
     }
     
-    func removeItems(items: [Operation]) {
+    func pause() {
 
     }
     
@@ -80,7 +81,6 @@ public class Downloader {
         if let urlData = NSData(contentsOf: localDestinationFile) {
             do {
                 try urlData.write(to: item.getFilePath(saveIn: item.getFolderForFile(rootFolder: folder)), options: .atomic)
-                self.downloadCompleted += 1
             }catch (let error) {
                 print(error.localizedDescription)
             }

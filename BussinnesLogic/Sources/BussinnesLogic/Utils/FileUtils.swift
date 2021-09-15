@@ -9,9 +9,9 @@
 import Foundation
 
 
-class FileUtils {
+public class FileUtils {
             
-    class func getDocumentsDirectoryForNewFile(folderName: String) -> URL {
+    public class func getDocumentsDirectoryForNewFile(folderName: String) -> URL {
         self.createFolderIfNeeded(folderName: folderName)
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docURL = paths[0]

@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,7 +41,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="4ZC-ca-yWH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ILL-15-NNd" secondAttribute="trailing" constant="10" id="3Uh-cP-EP9"/>
                                     <constraint firstItem="4ZC-ca-yWH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bFm-Go-exQ" secondAttribute="trailing" constant="10" id="4Zy-z1-D7L"/>
@@ -70,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xld-lZ-YUp" firstAttribute="leading" secondItem="OEW-Bs-OFa" secondAttribute="leading" id="7Os-DK-RrA"/>
                             <constraint firstItem="I6g-Vy-r4n" firstAttribute="leading" secondItem="OEW-Bs-OFa" secondAttribute="leading" id="DMu-ol-vu8"/>
@@ -102,9 +101,4 @@
             <point key="canvasLocation" x="-32.608695652173914" y="21.763392857142858"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

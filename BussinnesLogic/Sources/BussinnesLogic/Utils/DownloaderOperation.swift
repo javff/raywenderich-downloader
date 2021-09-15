@@ -11,6 +11,9 @@ import Foundation
 class DownloaderItemOperation: Operation {
     
     private var task: URLSessionDownloadTask!
+    private var observation: NSKeyValueObservation?
+    var fractionCompleted: ((Double) -> Void)?
+
     
     enum OperationState {
         case ready
@@ -40,7 +43,6 @@ class DownloaderItemOperation: Operation {
             return
         }
         state = .executing
-        print("downloading \((self.task.originalRequest?.url?.absoluteString) ?? "")")
         self.task.resume()
     }
     
@@ -51,15 +53,20 @@ class DownloaderItemOperation: Operation {
     }
     
     init(session: URLSession, downloadTaskURL: URL, completionHandler: ((URL?, URLResponse?, Error?) -> Void)?) {
-           super.init()
-           
-           task = session.downloadTask(with: downloadTaskURL, completionHandler: { [weak self] (localURL, response, error) in
-
-               if let completionHandler = completionHandler {
-                   completionHandler(localURL, response, error)
-               }
+        super.init()
+        
+        task = session.downloadTask(with: downloadTaskURL, completionHandler: { [weak self] (localURL, response, error) in
             
-               self?.state = .finished
-           })
-       }
+            if let completionHandler = completionHandler {
+                completionHandler(localURL, response, error)
+            }
+            
+            self?.state = .finished
+        })
+        
+        observation = task.progress.observe(\.fractionCompleted) { [weak self] (progress, _) in
+            self?.fractionCompleted?(progress.fractionCompleted)
+        }
+        
+    }
 }

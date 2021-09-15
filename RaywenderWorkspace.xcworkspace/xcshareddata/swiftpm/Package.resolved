@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "M13ProgressSuite",
+        "repositoryURL": "https://github.com/SDOSLabs/M13ProgressSuite.git",
+        "state": {
+          "branch": null,
+          "revision": "e053c97b313f1d6ebe0406f847bde584726d276d",
+          "version": "1.3.0"
+        }
+      },
+      {
         "package": "PureLayout",
         "repositoryURL": "https://github.com/PureLayout/PureLayout.git",
         "state": {
