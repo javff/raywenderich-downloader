@@ -14,6 +14,7 @@ protocol LessonRepositoryProtocol {
     func getCourseLessons(courseId: Int, quality: Quality)
     func startDownload(course: Downloader.Item)
     var courses: [Downloader.Item] { get set }
+    var progress:[Double]  { get set }
     var updated: (() -> Void)? { get set }
 }
 
@@ -30,7 +31,20 @@ class LessonRepository: LessonRepositoryProtocol {
     
     private let useCase = RayWenderCourseDownloader()
     private let dispacher: DownloaderDispacher
-    var courses: [Downloader.Item] = []
+    var courses: [Downloader.Item] = [] {
+        didSet {
+            self.progress = Array(repeating: 0, count: courses.count)
+            for i in 0..<courses.count {
+                courses[i].progressHandler = {[weak self] (fractionCompleted) in
+                    guard let self = self else { return }
+                    self.progress[i] = fractionCompleted
+                    self.updated?()
+                }
+            }
+        }
+    }
+    
+    var progress:[Double] = []
     
     var updated: (() -> Void)?
     
@@ -55,6 +69,7 @@ class LessonRepository: LessonRepositoryProtocol {
             }
         }
     }
+    
     
     func startDownload(course: Downloader.Item) {
         self.dispacher.startDownload(course)

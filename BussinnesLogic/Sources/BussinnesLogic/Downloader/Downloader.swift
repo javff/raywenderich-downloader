@@ -16,7 +16,9 @@ public class Downloader {
         let filename: String
         let format: String
         
-        public var progress: ((Double) -> Void)?
+        public var progress: Double = 0
+        
+        public var progressHandler: ((Double) -> Void)?
                 
         public var fullname: String {
             return filename.formatPath()
@@ -66,7 +68,7 @@ public class Downloader {
                 }
             }
             
-            op.fractionCompleted = item.progress
+            op.fractionCompleted = item.progressHandler
             return op
         }
         

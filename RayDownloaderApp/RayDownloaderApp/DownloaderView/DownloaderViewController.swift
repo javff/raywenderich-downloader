@@ -104,13 +104,9 @@ extension DownloaderViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LessonCell") as? LessonCell else {
             fatalError("verifiry cell identifier")
         }
+
         
-        repository.courses[indexPath.row].progress = { (progress) in
-            DispatchQueue.main.async {
-                cell.showProgress(progress)
-            }
-        }
-        
+        cell.showProgress(repository.progress[indexPath.row])
         cell.titleLabel.text = repository.courses[indexPath.row].fullname
     
         return cell
