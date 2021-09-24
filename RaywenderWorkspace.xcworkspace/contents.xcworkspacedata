@@ -13,6 +13,13 @@
    </Group>
    <Group
       location = "container:"
+      name = "UIComponents">
+      <FileRef
+         location = "group:UIProgressTextView">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
       name = "Core">
       <FileRef
          location = "group:BussinnesLogic">

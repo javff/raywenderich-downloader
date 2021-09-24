@@ -8,6 +8,7 @@
 import UIKit
 import PureLayout
 import BussinnesLogic
+import UIProgressTextView
 
 class DownloaderViewController: UIViewController {
 
@@ -24,10 +25,19 @@ class DownloaderViewController: UIViewController {
         return tableView
     }()
     
-    lazy var progressView: UIProgressView = {
-        let progress = UIProgressView(progressViewStyle: .default)
-        progress.progressTintColor = .blue
-        progress.trackTintColor = .gray
+    lazy var progressView: UIProgressTextView = {
+        let progress = UIProgressTextView()
+        progress.title = "Por favor espere..."
+        progress.showRandomFeedbacks([
+            "Scraping...",
+            "JAVFF",
+            "to the moon 🍏 🚀",
+            "🧨 🚗 💥",
+            "Buscando info !!",
+            "Compren ETH 😅 💰💰💰💰💰💰💰💰💰",
+        ],
+        internval: TimeInterval(2))
+        progress.progress = 0
         return progress
     }()
     
@@ -58,19 +68,18 @@ class DownloaderViewController: UIViewController {
         }
     }
     
-    
     private func setupView() {
         view.addSubview(tableView)
         view.addSubview(progressView)
         tableView.autoPinEdgesToSuperviewEdges()
         progressView.autoCenterInSuperview()
-        progressView.autoSetDimensions(to: CGSize(width: 180, height: 40))
+        progressView.autoSetDimensions(to: CGSize(width: 320, height: 150))
     }
     private func configureUseCase() {
         repository.progressSnapshot = { (snapshot) in
             DispatchQueue.main.async {
                 let progress = Float(snapshot.completed) / Float(snapshot.total)
-                self.progressView.setProgress(progress, animated: true)
+                self.progressView.progress = progress
             }
         }
     }

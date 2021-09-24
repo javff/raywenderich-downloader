@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIProgressTextView" customModule="UIProgressTextView">
+            <connections>
+                <outlet property="progressView" destination="SFU-IB-Y80" id="KHS-WF-p4j"/>
+                <outlet property="promptLabel" destination="IgS-jX-lva" id="q2q-Md-SdU"/>
+                <outlet property="titleLabel" destination="Cll-Ml-vvx" id="P6b-uc-clq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Bes-UL-YlD">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="355"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SFU-IB-Y80">
+                    <rect key="frame" x="150" y="194.5" width="150" height="4"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="Kn9-Gk-nEz"/>
+                        <constraint firstAttribute="height" constant="4" id="d9e-lm-UaE"/>
+                    </constraints>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgS-jX-lva">
+                    <rect key="frame" x="10" y="171" width="430" height="13.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cll-Ml-vvx">
+                    <rect key="frame" x="10" y="131" width="430" height="30"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="IdH-op-IbR"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Cll-Ml-vvx" firstAttribute="leading" secondItem="IdH-op-IbR" secondAttribute="leading" constant="10" id="2YR-7k-xqk"/>
+                <constraint firstItem="IdH-op-IbR" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SFU-IB-Y80" secondAttribute="bottom" constant="20" id="2a3-IS-qfj"/>
+                <constraint firstItem="IgS-jX-lva" firstAttribute="centerY" secondItem="Bes-UL-YlD" secondAttribute="centerY" id="9mZ-b5-Pe6"/>
+                <constraint firstItem="IgS-jX-lva" firstAttribute="top" secondItem="Cll-Ml-vvx" secondAttribute="bottom" constant="10" id="C83-uP-PQE"/>
+                <constraint firstItem="SFU-IB-Y80" firstAttribute="centerX" secondItem="Bes-UL-YlD" secondAttribute="centerX" id="RwL-Fh-dkj"/>
+                <constraint firstItem="IgS-jX-lva" firstAttribute="leading" secondItem="IdH-op-IbR" secondAttribute="leading" constant="10" id="Xaq-6f-CZa"/>
+                <constraint firstItem="SFU-IB-Y80" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IdH-op-IbR" secondAttribute="leading" id="jwe-Vq-AC2"/>
+                <constraint firstItem="Cll-Ml-vvx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IdH-op-IbR" secondAttribute="top" constant="20" id="kBb-VL-VrI"/>
+                <constraint firstItem="SFU-IB-Y80" firstAttribute="top" secondItem="IgS-jX-lva" secondAttribute="bottom" constant="10" id="kcF-ZE-6wZ"/>
+                <constraint firstItem="IdH-op-IbR" firstAttribute="trailing" secondItem="IgS-jX-lva" secondAttribute="trailing" constant="10" id="lZL-MI-JtF"/>
+                <constraint firstItem="IdH-op-IbR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SFU-IB-Y80" secondAttribute="trailing" id="pmN-9I-Elb"/>
+                <constraint firstItem="IdH-op-IbR" firstAttribute="trailing" secondItem="Cll-Ml-vvx" secondAttribute="trailing" constant="10" id="sGx-LN-k4W"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-10.144927536231885" y="-157.03125"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

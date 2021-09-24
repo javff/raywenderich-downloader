@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E20998F926FE7348003C7B96 /* UIProgressTextView in Frameworks */ = {isa = PBXBuildFile; productRef = E20998F826FE7348003C7B96 /* UIProgressTextView */; };
 		E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEB26CB1F320036AA5C /* AppDelegate.swift */; };
 		E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FED26CB1F320036AA5C /* SceneDelegate.swift */; };
 		E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEF26CB1F320036AA5C /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2BA0F0D26EBCF820084D232 /* Kingfisher in Frameworks */,
+				E20998F926FE7348003C7B96 /* UIProgressTextView in Frameworks */,
 				E2BA0EEB26EBAD500084D232 /* PureLayout in Frameworks */,
 				E2FDE0C926E7CB0C0017220A /* BussinnesLogic in Frameworks */,
 			);
@@ -185,6 +187,7 @@
 				E2FDE0C826E7CB0C0017220A /* BussinnesLogic */,
 				E2BA0EEA26EBAD500084D232 /* PureLayout */,
 				E2BA0F0C26EBCF820084D232 /* Kingfisher */,
+				E20998F826FE7348003C7B96 /* UIProgressTextView */,
 			);
 			productName = RayDownloaderApp;
 			productReference = E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */;
@@ -496,6 +499,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E20998F826FE7348003C7B96 /* UIProgressTextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIProgressTextView;
+		};
 		E2BA0EEA26EBAD500084D232 /* PureLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E2BA0EE926EBAD500084D232 /* XCRemoteSwiftPackageReference "PureLayout" */;
