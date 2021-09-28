@@ -12,9 +12,8 @@ import BussinnesLogic
 protocol LessonRepositoryProtocol {
     var progressSnapshot: ((ProgressTaskViewModel) -> Void)? { get set }
     func getCourseLessons(courseId: Int, quality: Quality)
-    func startDownload(course: Downloader.Item)
-    var courses: [Downloader.Item] { get set }
-    var progress:[Double]  { get set }
+    func startDownload(course: Lesson)
+    var courses: [Lesson] { get set }
     var updated: (() -> Void)? { get set }
 }
 
@@ -31,23 +30,9 @@ class LessonRepository: LessonRepositoryProtocol {
     
     private let useCase = RayWenderCourseDownloader()
     private let dispacher: DownloaderDispacher
-    var courses: [Downloader.Item] = [] {
-        didSet {
-            self.progress = Array(repeating: 0, count: courses.count)
-            for i in 0..<courses.count {
-                courses[i].progressHandler = {[weak self] (fractionCompleted) in
-                    guard let self = self else { return }
-                    self.progress[i] = fractionCompleted
-                    self.updated?()
-                }
-            }
-        }
-    }
-    
-    var progress:[Double] = []
-    
+    var courses: [Lesson] = []
     var updated: (() -> Void)?
-    
+        
     init(url: URL) {
         self.dispacher = DownloaderDispacher(url: url)
     }
@@ -62,7 +47,7 @@ class LessonRepository: LessonRepositoryProtocol {
         useCase.getCourseLessons(courseId: courseId, quality: quality) { (response) in
             switch response {
             case .success(let data):
-                self.courses = data.flatMap { $0.items }
+                self.courses = data
                 self.updated?()
             case .failure:
                 break
@@ -71,7 +56,9 @@ class LessonRepository: LessonRepositoryProtocol {
     }
     
     
-    func startDownload(course: Downloader.Item) {
-        self.dispacher.startDownload(course)
+    func startDownload(course: Lesson) {
+        course.items.forEach {
+            self.dispacher.startDownload($0)
+        }
     }
 }

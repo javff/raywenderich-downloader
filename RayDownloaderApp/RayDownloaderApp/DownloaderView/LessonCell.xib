@@ -20,32 +20,18 @@
                         <rect key="frame" x="10" y="10" width="394" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8f-n9-ieV">
-                                <rect key="frame" x="10" y="10" width="374" height="25.5"/>
+                                <rect key="frame" x="10" y="10" width="374" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wf0-Gk-mQo">
-                                <rect key="frame" x="10" y="45.5" width="374" height="25.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q80-ZF-ioF">
-                                        <rect key="frame" x="0.0" y="0.0" width="31" height="25.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="s8f-n9-ieV" secondAttribute="trailing" constant="10" id="9Ux-lw-FM0"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wf0-Gk-mQo" secondAttribute="bottom" id="9vz-1u-sfd"/>
                             <constraint firstItem="s8f-n9-ieV" firstAttribute="top" secondItem="bzP-Wc-olO" secondAttribute="top" constant="10" id="LKj-h8-dcg"/>
-                            <constraint firstAttribute="trailing" secondItem="wf0-Gk-mQo" secondAttribute="trailing" constant="10" id="My4-Kc-lw1"/>
-                            <constraint firstItem="wf0-Gk-mQo" firstAttribute="top" secondItem="s8f-n9-ieV" secondAttribute="bottom" constant="10" id="PAS-Xo-scQ"/>
                             <constraint firstItem="s8f-n9-ieV" firstAttribute="leading" secondItem="bzP-Wc-olO" secondAttribute="leading" constant="10" id="Pws-Gj-yHd"/>
-                            <constraint firstItem="wf0-Gk-mQo" firstAttribute="leading" secondItem="bzP-Wc-olO" secondAttribute="leading" constant="10" id="V3k-dY-7pg"/>
+                            <constraint firstAttribute="bottom" secondItem="s8f-n9-ieV" secondAttribute="bottom" constant="20" id="jpo-Pe-cFz"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -57,7 +43,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="statusLabel" destination="q80-ZF-ioF" id="1fZ-3P-oc4"/>
                 <outlet property="titleLabel" destination="s8f-n9-ieV" id="4iU-K7-rfX"/>
             </connections>
             <point key="canvasLocation" x="221.73913043478262" y="78.013392857142847"/>

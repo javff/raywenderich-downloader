@@ -9,4 +9,5 @@ import Foundation
 
 enum Route {
     case downloader(model: CourseFeedViewModel)
+    case library
 }

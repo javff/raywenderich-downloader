@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E20998F926FE7348003C7B96 /* UIProgressTextView in Frameworks */ = {isa = PBXBuildFile; productRef = E20998F826FE7348003C7B96 /* UIProgressTextView */; };
+		E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */; };
+		E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BBA270384A5007AB4C5 /* LibraryViewController.swift */; };
+		E2178BBD270384A5007AB4C5 /* LibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2178BBB270384A5007AB4C5 /* LibraryViewController.xib */; };
+		E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */; };
+		E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC027038599007AB4C5 /* LibraryItem.swift */; };
+		E2178BC52703ABA4007AB4C5 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */; };
+		E283342F2703A966005644DF /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E283342E2703A966005644DF /* Dynamic */; };
 		E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEB26CB1F320036AA5C /* AppDelegate.swift */; };
 		E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FED26CB1F320036AA5C /* SceneDelegate.swift */; };
 		E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEF26CB1F320036AA5C /* ViewController.swift */; };
@@ -32,6 +39,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		E2178BBA270384A5007AB4C5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		E2178BBB270384A5007AB4C5 /* LibraryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryViewController.xib; sourceTree = "<group>"; };
+		E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRepository.swift; sourceTree = "<group>"; };
+		E2178BC027038599007AB4C5 /* LibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
+		E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
 		E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayDownloaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2927FEB26CB1F320036AA5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2927FED26CB1F320036AA5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E283342F2703A966005644DF /* Dynamic in Frameworks */,
 				E2BA0F0D26EBCF820084D232 /* Kingfisher in Frameworks */,
 				E20998F926FE7348003C7B96 /* UIProgressTextView in Frameworks */,
 				E2BA0EEB26EBAD500084D232 /* PureLayout in Frameworks */,
@@ -77,6 +91,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2178BB42700FEDF007AB4C5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		E2178BB927038492007AB4C5 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E2178BBA270384A5007AB4C5 /* LibraryViewController.swift */,
+				E2178BBB270384A5007AB4C5 /* LibraryViewController.xib */,
+				E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */,
+				E2178BC027038599007AB4C5 /* LibraryItem.swift */,
+				E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		E2927FDF26CB1F320036AA5C = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +131,8 @@
 		E2927FEA26CB1F320036AA5C /* RayDownloaderApp */ = {
 			isa = PBXGroup;
 			children = (
+				E2178BB927038492007AB4C5 /* Library */,
+				E2178BB42700FEDF007AB4C5 /* Menu */,
 				E2BA0F0726EBCED70084D232 /* Extensions */,
 				E2BA0F0526EBCCDC0084D232 /* DownloaderView */,
 				E2BA0EF026EBB05F0084D232 /* Router */,
@@ -188,6 +224,7 @@
 				E2BA0EEA26EBAD500084D232 /* PureLayout */,
 				E2BA0F0C26EBCF820084D232 /* Kingfisher */,
 				E20998F826FE7348003C7B96 /* UIProgressTextView */,
+				E283342E2703A966005644DF /* Dynamic */,
 			);
 			productName = RayDownloaderApp;
 			productReference = E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */;
@@ -220,6 +257,7 @@
 				E2BA0EE926EBAD500084D232 /* XCRemoteSwiftPackageReference "PureLayout" */,
 				E2BA0F0B26EBCF820084D232 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E2BA0F2326EFADA70084D232 /* XCRemoteSwiftPackageReference "M13ProgressSuite" */,
+				E283342D2703A966005644DF /* XCRemoteSwiftPackageReference "Dynamic" */,
 			);
 			productRefGroup = E2927FE926CB1F320036AA5C /* Products */;
 			projectDirPath = "";
@@ -237,6 +275,7 @@
 			files = (
 				E2BA0F0026EBB3DC0084D232 /* CourseCell.xib in Resources */,
 				E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */,
+				E2178BBD270384A5007AB4C5 /* LibraryViewController.xib in Resources */,
 				E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */,
 				E2BA0F1E26EFA0E20084D232 /* LessonCell.xib in Resources */,
 				E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */,
@@ -251,15 +290,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */,
+				E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */,
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
+				E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */,
 				E2BA0EFD26EBB3D00084D232 /* CourseCell.swift in Sources */,
 				E2BA0F0926EBCEE00084D232 /* String+Html.swift in Sources */,
+				E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */,
+				E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */,
 				E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */,
 				E2BA0EF626EBB0950084D232 /* AppRouter.swift in Sources */,
 				E2BA0F1B26EFA0D40084D232 /* LessonCell.swift in Sources */,
 				E2BA0F0326EBC2420084D232 /* CoursesRepository.swift in Sources */,
 				E2BA0EF926EBB0F60084D232 /* Route.swift in Sources */,
+				E2178BC52703ABA4007AB4C5 /* LibraryManager.swift in Sources */,
 				E2BA0F2126EFA3460084D232 /* LessonRepository.swift in Sources */,
 				E2BA0EE626EBACFA0084D232 /* CoursesViewController.swift in Sources */,
 				E2BA0EEE26EBAD740084D232 /* CoursesView.swift in Sources */,
@@ -472,6 +516,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E283342D2703A966005644DF /* XCRemoteSwiftPackageReference "Dynamic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mhdhejazi/Dynamic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		E2BA0EE926EBAD500084D232 /* XCRemoteSwiftPackageReference "PureLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/PureLayout/PureLayout.git";
@@ -502,6 +554,11 @@
 		E20998F826FE7348003C7B96 /* UIProgressTextView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIProgressTextView;
+		};
+		E283342E2703A966005644DF /* Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E283342D2703A966005644DF /* XCRemoteSwiftPackageReference "Dynamic" */;
+			productName = Dynamic;
 		};
 		E2BA0EEA26EBAD500084D232 /* PureLayout */ = {
 			isa = XCSwiftPackageProductDependency;

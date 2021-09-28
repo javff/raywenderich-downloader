@@ -41,6 +41,8 @@ class DownloaderViewController: UIViewController {
         return progress
     }()
     
+    var downloadButton: UIBarButtonItem?
+    
     init(model: CourseFeedViewModel) {
         self.model = model
         let url = FileUtils.getDocumentsDirectoryForNewFile(folderName: model.id)
@@ -74,7 +76,16 @@ class DownloaderViewController: UIViewController {
         tableView.autoPinEdgesToSuperviewEdges()
         progressView.autoCenterInSuperview()
         progressView.autoSetDimensions(to: CGSize(width: 320, height: 150))
+        self.downloadButton = UIBarButtonItem(title: "Download all", style: .done, target: self, action: #selector(self.downloadAllButtonTapped))
     }
+    
+    
+    @objc func downloadAllButtonTapped() {
+        repository.courses.forEach {
+            self.repository.startDownload(course: $0)
+        }
+    }
+    
     private func configureUseCase() {
         repository.progressSnapshot = { (snapshot) in
             DispatchQueue.main.async {
@@ -86,11 +97,13 @@ class DownloaderViewController: UIViewController {
     
     private func start() {
         guard let id = Int(model.id) else { return }
+        self.showProgress()
         repository.getCourseLessons(courseId: id, quality: .sd)
     }
     
     private func showProgress(_ show: Bool = true) {
         progressView.isHidden = !show
+        self.navigationItem.rightBarButtonItem = !show ? self.downloadButton : nil
     }
 }
 
@@ -105,16 +118,8 @@ extension DownloaderViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("verifiry cell identifier")
         }
 
-        
-        cell.showProgress(repository.progress[indexPath.row])
-        cell.titleLabel.text = repository.courses[indexPath.row].fullname
+        cell.titleLabel.text = repository.courses[indexPath.row].lessonName
     
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let element = self.repository.courses[indexPath.row]
-        self.repository.startDownload(course: element)
     }
 }
