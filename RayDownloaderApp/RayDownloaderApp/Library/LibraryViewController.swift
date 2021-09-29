@@ -9,9 +9,10 @@ import UIKit
 
 class LibraryViewController: UIViewController {
     
-
-    @IBOutlet weak var tableView: UITableView!
-    
+    let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        return tableView
+    }()
     let repository: LibraryRepositoryProtocol
     let libraryManager: LibraryManagerProtocol?
     var items: [LibraryItem] = []
@@ -19,7 +20,7 @@ class LibraryViewController: UIViewController {
     init(repository: LibraryRepositoryProtocol, libraryManager: LibraryManagerProtocol?) {
         self.repository = repository
         self.libraryManager = libraryManager
-        super.init(nibName: "LibraryViewController", bundle: nil)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +34,8 @@ class LibraryViewController: UIViewController {
     }
     
     private func setupView() {
+        view.addSubview(tableView)
+        tableView.autoPinEdgesToSuperviewEdges()
         tableView.delegate = self
         tableView.dataSource = self
     }

@@ -12,9 +12,11 @@ import UIProgressTextView
 
 class DownloaderViewController: UIViewController {
 
-    let model: CourseFeedViewModel
-    var repository: LessonRepositoryProtocol
-        
+    private let model: CourseFeedViewModel
+    private var repository: LessonRepositoryProtocol
+    //TODO: Inyectar como dependencia para manejar ruta de descarga custom
+    private let dispacher: DownloaderDispacherProtocol
+
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -31,10 +33,11 @@ class DownloaderViewController: UIViewController {
         progress.showRandomFeedbacks([
             "Scraping...",
             "JAVFF",
-            "to the moon 🍏 🚀",
+            "esto puede tardar 🍏 🚀",
             "🧨 🚗 💥",
             "Buscando info !!",
-            "Compren ETH 😅 💰💰💰💰💰💰💰💰💰",
+            " 🐈‍⬛ 🪞 🪜",
+            " 🍀 🌈 👑"
         ],
         internval: TimeInterval(2))
         progress.progress = 0
@@ -43,10 +46,12 @@ class DownloaderViewController: UIViewController {
     
     var downloadButton: UIBarButtonItem?
     
-    init(model: CourseFeedViewModel) {
+    init(model: CourseFeedViewModel, repository: LessonRepository) {
         self.model = model
-        let url = FileUtils.getDocumentsDirectoryForNewFile(folderName: model.id)
-        let repository = LessonRepository(url: url)
+        let sanitizeFolderName = model.name.replacingOccurrences(of: " ", with: "-")
+        let url = FileUtils.getDocumentsDirectoryForNewFile(folderName: sanitizeFolderName)
+        self.dispacher = DownloaderDispacher(url: url)
+        let repository = repository
         self.repository = repository
         super.init(nibName: nil, bundle: nil)
     }
@@ -81,8 +86,8 @@ class DownloaderViewController: UIViewController {
     
     
     @objc func downloadAllButtonTapped() {
-        repository.courses.forEach {
-            self.repository.startDownload(course: $0)
+        repository.courses.flatMap { $0.items }.forEach {
+            self.dispacher.startDownload($0)
         }
     }
     

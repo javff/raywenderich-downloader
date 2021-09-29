@@ -10,7 +10,6 @@
 		E20998F926FE7348003C7B96 /* UIProgressTextView in Frameworks */ = {isa = PBXBuildFile; productRef = E20998F826FE7348003C7B96 /* UIProgressTextView */; };
 		E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */; };
 		E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BBA270384A5007AB4C5 /* LibraryViewController.swift */; };
-		E2178BBD270384A5007AB4C5 /* LibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2178BBB270384A5007AB4C5 /* LibraryViewController.xib */; };
 		E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */; };
 		E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC027038599007AB4C5 /* LibraryItem.swift */; };
 		E2178BC52703ABA4007AB4C5 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */; };
@@ -44,7 +43,6 @@
 /* Begin PBXFileReference section */
 		E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E2178BBA270384A5007AB4C5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		E2178BBB270384A5007AB4C5 /* LibraryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryViewController.xib; sourceTree = "<group>"; };
 		E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRepository.swift; sourceTree = "<group>"; };
 		E2178BC027038599007AB4C5 /* LibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
 		E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				E2178BBA270384A5007AB4C5 /* LibraryViewController.swift */,
-				E2178BBB270384A5007AB4C5 /* LibraryViewController.xib */,
 				E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */,
 				E2178BC027038599007AB4C5 /* LibraryItem.swift */,
 				E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */,
@@ -141,7 +138,7 @@
 				E2178BB927038492007AB4C5 /* Library */,
 				E2178BB42700FEDF007AB4C5 /* Menu */,
 				E2BA0F0726EBCED70084D232 /* Extensions */,
-				E2BA0F0526EBCCDC0084D232 /* DownloaderView */,
+				E2BA0F0526EBCCDC0084D232 /* Downloader */,
 				E2BA0EF026EBB05F0084D232 /* Router */,
 				E2BA0EE426EBACEB0084D232 /* Courses */,
 				E2BA0EDE26EBA2A60084D232 /* RayDownloaderApp.entitlements */,
@@ -193,7 +190,7 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		E2BA0F0526EBCCDC0084D232 /* DownloaderView */ = {
+		E2BA0F0526EBCCDC0084D232 /* Downloader */ = {
 			isa = PBXGroup;
 			children = (
 				E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */,
@@ -201,7 +198,7 @@
 				E2BA0F1D26EFA0E20084D232 /* LessonCell.xib */,
 				E2BA0F2026EFA3460084D232 /* LessonRepository.swift */,
 			);
-			path = DownloaderView;
+			path = Downloader;
 			sourceTree = "<group>";
 		};
 		E2BA0F0726EBCED70084D232 /* Extensions */ = {
@@ -284,7 +281,6 @@
 			files = (
 				E2BA0F0026EBB3DC0084D232 /* CourseCell.xib in Resources */,
 				E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */,
-				E2178BBD270384A5007AB4C5 /* LibraryViewController.xib in Resources */,
 				E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */,
 				E2BA0F1E26EFA0E20084D232 /* LessonCell.xib in Resources */,
 				E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */,

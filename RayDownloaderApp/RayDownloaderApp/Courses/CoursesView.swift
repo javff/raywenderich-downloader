@@ -25,6 +25,7 @@ struct CourseFeedViewModel {
     let description: String
     let metaInfo: String
     let imageUrl: String
+    let name: String
 }
 
 class CoursesView: UIView {

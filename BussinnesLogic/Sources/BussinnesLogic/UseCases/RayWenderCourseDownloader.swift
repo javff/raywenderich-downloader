@@ -39,12 +39,6 @@ public class RayWenderCourseDownloader {
         }
     }
     
-//    public func startDownload(course: CourseViewModel, saveIn folder: URL? = nil) {
-//        let folder = folder ?? FileUtils.getDocumentsDirectoryForNewFile(folderName: course.courseName)
-//        self.downloader = Downloader(folder: folder)
-//        self.downloader?.addItems(items: course.items)
-//    }
-    
     //MARK - Private use cases
     private func getItemsForDownload(_ course: CourseModel, quality: Quality) -> [Downloader.Item] {
         if course.lessons.isEmpty {
@@ -73,8 +67,7 @@ public class RayWenderCourseDownloader {
                 let updateSnapshot = ProgressTaskViewModel(total: course.lessons.count, completed: current, courseName: course.name)
                 progressSnapshot?(updateSnapshot)
                 let lessonsItems = lessonsInfo
-                    .enumerated()
-                    .compactMap { $0.element.createDownloaderVideoItem(filename:  finalFilename)}
+                    .compactMap { $0.createDownloaderVideoItem(filename:  finalFilename)}
                 items.append(contentsOf: lessonsItems)
                 items.append(contentsOf: materials)
             }
