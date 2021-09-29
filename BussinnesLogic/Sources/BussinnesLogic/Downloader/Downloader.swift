@@ -50,7 +50,6 @@ public class Downloader {
     private let folder: URL
     private var downloadCompleted = 0
     
-    
     init(folder: URL) {
         self.folder = folder
     }
@@ -58,7 +57,6 @@ public class Downloader {
     func cancel() {
         self.queue.cancelAllOperations()
     }
-        
     
     func startDownload(items: [Item]) {
         let operations = items.enumerated().map { (index, item) -> DownloaderItemOperation in

@@ -16,6 +16,9 @@
 		E2178BC72703B02A007AB4C5 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC62703B02A007AB4C5 /* MenuOption.swift */; };
 		E2178BD02703B899007AB4C5 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BCF2703B899007AB4C5 /* ListRouter.swift */; };
 		E2178BD32703BD5C007AB4C5 /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */; };
+		E2603A6E2704C99800C6E376 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */; };
+		E2603A6F2704C99800C6E376 /* LessonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */; };
+		E2603A712704D3E300C6E376 /* Int+ConvertionTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */; };
 		E283342F2703A966005644DF /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E283342E2703A966005644DF /* Dynamic */; };
 		E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEB26CB1F320036AA5C /* AppDelegate.swift */; };
 		E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FED26CB1F320036AA5C /* SceneDelegate.swift */; };
@@ -49,6 +52,9 @@
 		E2178BC62703B02A007AB4C5 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		E2178BCF2703B899007AB4C5 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
+		E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
+		E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonDetailViewController.xib; sourceTree = "<group>"; };
+		E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ConvertionTime.swift"; sourceTree = "<group>"; };
 		E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayDownloaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2927FEB26CB1F320036AA5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2927FED26CB1F320036AA5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 				E2BA0F1A26EFA0D30084D232 /* LessonCell.swift */,
 				E2BA0F1D26EFA0E20084D232 /* LessonCell.xib */,
 				E2BA0F2026EFA3460084D232 /* LessonRepository.swift */,
+				E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */,
+				E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */,
 			);
 			path = Downloader;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				E2BA0F0826EBCEE00084D232 /* String+Html.swift */,
+				E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,6 +293,7 @@
 				E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */,
 				E2BA0F1E26EFA0E20084D232 /* LessonCell.xib in Resources */,
 				E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */,
+				E2603A6F2704C99800C6E376 /* LessonDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +308,7 @@
 				E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */,
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
+				E2603A712704D3E300C6E376 /* Int+ConvertionTime.swift in Sources */,
 				E2178BC72703B02A007AB4C5 /* MenuOption.swift in Sources */,
 				E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */,
 				E2BA0EFD26EBB3D00084D232 /* CourseCell.swift in Sources */,
@@ -306,6 +317,7 @@
 				E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */,
 				E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */,
 				E2BA0EF626EBB0950084D232 /* AppRouter.swift in Sources */,
+				E2603A6E2704C99800C6E376 /* LessonDetailViewController.swift in Sources */,
 				E2BA0F1B26EFA0D40084D232 /* LessonCell.swift in Sources */,
 				E2BA0F0326EBC2420084D232 /* CoursesRepository.swift in Sources */,
 				E2178BD02703B899007AB4C5 /* ListRouter.swift in Sources */,

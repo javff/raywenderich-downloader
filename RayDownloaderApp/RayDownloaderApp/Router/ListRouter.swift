@@ -35,7 +35,7 @@ class ListRouter: ListRouterProtocol {
     
     private func navigateToDownloader(_ model: CourseFeedViewModel) {
         let repository = LessonRepository()
-        let controller = DownloaderViewController(model: model, repository: repository)
+        let controller = LessonDetailViewController(model: model, repository: repository)
         self.navController?.pushViewController(controller, animated: true)
     }
 }

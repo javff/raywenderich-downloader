@@ -37,7 +37,8 @@ class CoursesRepository: CoursesRepositoryProtocol {
             description: item.attributes.descriptionPlainText,
             metaInfo: "",
             imageUrl: item.attributes.cardArtworkUrl,
-            name: item.attributes.name
+            name: item.attributes.name,
+            duration: item.attributes.duration
         )
     }
 }
