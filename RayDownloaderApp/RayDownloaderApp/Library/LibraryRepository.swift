@@ -12,7 +12,6 @@ protocol LibraryRepositoryProtocol: AnyObject {
     func fetchItems(completion:@escaping(Result<[LibraryItem], Error>) -> Void)
 }
 
-
 class LibraryRepository: LibraryRepositoryProtocol {
     
     let fileManager = FileManager.default

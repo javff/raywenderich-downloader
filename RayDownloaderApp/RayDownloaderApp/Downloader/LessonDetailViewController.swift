@@ -24,14 +24,17 @@ class LessonDetailViewController: UIViewController {
     //TODO: Inyectar como dependencia para manejar ruta de descarga custom
     private let dispacher: DownloaderDispacherProtocol
 
+    var lessons: [Lesson] = []
 
     lazy var progressView: UIProgressTextView = {
         let progress = UIProgressTextView()
+        progress.layer.cornerRadius = 15
+        progress.layer.masksToBounds = true
         progress.title = "Por favor espere..."
         progress.showRandomFeedbacks([
             "Scraping...",
             "JAVFF",
-            "esto puede tardar 🍏 🚀",
+            "esto puede tardar 😅 🚀",
             "🧨 🚗 💥",
             "Buscando info !!",
             " 🐈‍⬛ 🪞 🪜",
@@ -42,6 +45,25 @@ class LessonDetailViewController: UIViewController {
         return progress
     }()
     
+    lazy var visualEffect: UIVisualEffectView = {
+        let effectView = UIVisualEffectView()
+        effectView.effect = nil
+        return effectView
+    }()
+    
+    lazy var containerProgressView: UIView = {
+        let view = UIView()
+        
+        view.addSubview(visualEffect)
+        view.addSubview(progressView)
+
+        progressView.autoCenterInSuperview()
+        visualEffect.autoPinEdgesToSuperviewEdges()
+
+        progressView.autoSetDimensions(to: CGSize(width: 320, height: 150))
+        view.isHidden = true
+        return view
+    }()
     
     init(model: CourseFeedViewModel, repository: LessonRepository) {
         self.model = model
@@ -51,6 +73,7 @@ class LessonDetailViewController: UIViewController {
         let repository = repository
         self.repository = repository
         super.init(nibName: "LessonDetailViewController", bundle: nil)
+        self.dispacher.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -62,14 +85,6 @@ class LessonDetailViewController: UIViewController {
         self.setupView()
         self.bindView()
         self.configureUseCase()
-        self.start()
-        
-//        self.repository.updated = {
-//            DispatchQueue.main.async {
-//                self.showProgress(false)
-//                self.updateView()
-//            }
-//        }
     }
     
     private func updateView() {
@@ -77,9 +92,8 @@ class LessonDetailViewController: UIViewController {
     }
     
     private func setupView() {
-        view.addSubview(progressView)
-        progressView.autoCenterInSuperview()
-        progressView.autoSetDimensions(to: CGSize(width: 320, height: 150))
+        view.addSubview(containerProgressView)
+        containerProgressView.autoPinEdgesToSuperviewEdges()
         showProgress(false)
     }
     
@@ -92,9 +106,12 @@ class LessonDetailViewController: UIViewController {
     }
     
     @IBAction func downloadAllButtonTapped() {
-        repository.courses.flatMap { $0.items }.forEach {
-            self.dispacher.startDownload($0)
-        }
+        self.scrapingStart()
+    }
+    
+    internal func startDownload() {
+        let items = lessons.flatMap { $0.items }
+        self.dispacher.startDownload(items)
     }
     
     private func configureUseCase() {
@@ -106,31 +123,45 @@ class LessonDetailViewController: UIViewController {
         }
     }
     
-    private func start() {
-//        guard let id = Int(model.id) else { return }
-//        self.showProgress()
-//        repository.getCourseLessons(courseId: id, quality: .sd)
+    private func scrapingStart() {
+        guard let id = Int(model.id) else { return }
+        self.showProgress()
+        
+        repository.getCourseLessons(courseId: id, quality: .sd) { response in
+            switch response {
+            case .success(let data):
+                self.lessons = data
+                self.startDownload()
+            case .failure:
+                //TODO: Handler error
+                break
+            }
+        }
     }
     
     private func showProgress(_ show: Bool = true) {
-        progressView.isHidden = !show
-//        self.navigationItem.rightBarButtonItem = !show ? self.downloadButton : nil
+        UIView.animate(withDuration: 0.25) {
+            self.progressView.isHidden = !show
+            self.containerProgressView.isHidden = !show
+            self.visualEffect.effect = UIBlurEffect(style: UIBlurEffect.Style.prominent)
+        }
     }
 }
 
-//extension LessonDetailViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return repository.courses.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LessonCell") as? LessonCell else {
-//            fatalError("verifiry cell identifier")
-//        }
-//
-//        cell.titleLabel.text = repository.courses[indexPath.row].lessonName
-//
-//        return cell
-//    }
-//
-//}
+extension LessonDetailViewController: DownloaderDispacherDelegate {
+
+    func dispacherStartDownload() {
+        self.progressView.resetProgress()
+        self.progressView.title = "Descargando Archivos"
+    }
+    
+    func dispacherFinishedDownload() {
+        self.showProgress(false)
+        //TODO: - Mostrar descarga
+    }
+    
+    func downloaderDispacher(_ dispacher: DownloaderDispacher, progress: Double, completed: Int, total: Int) {
+        self.progressView.prompt = "\(completed) / \(total)"
+        self.progressView.progress = Float(progress)
+    }
+}

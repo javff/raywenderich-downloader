@@ -11,9 +11,6 @@ import Foundation
 class DownloaderItemOperation: Operation {
     
     private var task: URLSessionDownloadTask!
-    private var observation: NSKeyValueObservation?
-    var fractionCompleted: ((Double) -> Void)?
-
     
     enum OperationState {
         case ready
@@ -62,11 +59,6 @@ class DownloaderItemOperation: Operation {
             }
             
             self?.state = .finished
-        })
-        
-        observation = task.progress.observe(\.fractionCompleted) { [weak self] (progress, _) in
-            self?.fractionCompleted?(progress.fractionCompleted)
-        }
-        
+        })        
     }
 }

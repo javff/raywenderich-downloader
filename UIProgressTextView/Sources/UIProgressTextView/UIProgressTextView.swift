@@ -20,9 +20,9 @@ public class UIProgressTextView: BaseNibView {
         }
     }
     
-    public var proompt: String? {
+    public var prompt: String? {
         didSet {
-            self.promptLabel.text = proompt
+            self.promptLabel.text = prompt
         }
     }
     
@@ -42,7 +42,7 @@ public class UIProgressTextView: BaseNibView {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 let randomInt = Int.random(in: 1..<feedbacks.count)
-                self.proompt = feedbacks[randomInt]
+                self.prompt = feedbacks[randomInt]
             }
         }
         
@@ -50,8 +50,14 @@ public class UIProgressTextView: BaseNibView {
     }
     
     public func stopFeedbacks() {
-        self.proompt = nil
+        self.prompt = nil
         self.timer?.invalidate()
+    }
+    
+    public func resetProgress() {
+        self.progressView.setProgress(0, animated: false)
+        self.prompt = nil
+        self.stopFeedbacks()
     }
     
 }

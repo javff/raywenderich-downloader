@@ -65,6 +65,9 @@
                                     <rect key="frame" x="0.0" y="562.66666666666663" width="414" height="173.33333333333337"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                     <state key="normal" title="Download"/>
+                                    <connections>
+                                        <action selector="downloadAllButtonTapped" destination="-1" eventType="touchUpInside" id="VcE-m4-klt"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

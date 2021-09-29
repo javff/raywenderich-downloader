@@ -17,9 +17,7 @@ public class Downloader {
         let format: String
         
         public var progress: Double = 0
-        
-        public var progressHandler: ((Double) -> Void)?
-                
+                        
         public var fullname: String {
             return filename.formatPath()
         }
@@ -47,8 +45,13 @@ public class Downloader {
         return session
     }()
     
+    public var progressHandler: ((Double, Int, Int) -> Void)?
+    
+    public var finishHandler: (() -> Void)?
+    
+    var observation: NSKeyValueObservation?
+
     private let folder: URL
-    private var downloadCompleted = 0
     
     init(folder: URL) {
         self.folder = folder
@@ -65,16 +68,24 @@ public class Downloader {
                     self.saveDownloadedItem(item, localDestinationFile: url)
                 }
             }
-            
-            op.fractionCompleted = item.progressHandler
             return op
         }
         
         self.queue.addOperations(operations, waitUntilFinished: false)
-    }
-    
-    func pause() {
-
+        
+        observation = self.queue.observe(\.operationCount) { operationQueue, _ in
+            let progress: Double = 1 - Double(Double(operationQueue.operationCount) / Double(items.count))
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                let total = items.count
+                let completed = items.count - operationQueue.operationCount
+                self.progressHandler?(progress, completed, total)
+                
+                if total == completed {
+                    self.finishHandler?()
+                }
+            }
+        }
     }
     
     private func saveDownloadedItem(_ item: Item, localDestinationFile: URL) {

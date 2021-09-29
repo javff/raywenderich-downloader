@@ -36,11 +36,8 @@
 		E2BA0F0326EBC2420084D232 /* CoursesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0F0226EBC2420084D232 /* CoursesRepository.swift */; };
 		E2BA0F0926EBCEE00084D232 /* String+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0F0826EBCEE00084D232 /* String+Html.swift */; };
 		E2BA0F0D26EBCF820084D232 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E2BA0F0C26EBCF820084D232 /* Kingfisher */; };
-		E2BA0F1B26EFA0D40084D232 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0F1A26EFA0D30084D232 /* LessonCell.swift */; };
-		E2BA0F1E26EFA0E20084D232 /* LessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BA0F1D26EFA0E20084D232 /* LessonCell.xib */; };
 		E2BA0F2126EFA3460084D232 /* LessonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0F2026EFA3460084D232 /* LessonRepository.swift */; };
 		E2FDE0C926E7CB0C0017220A /* BussinnesLogic in Frameworks */ = {isa = PBXBuildFile; productRef = E2FDE0C826E7CB0C0017220A /* BussinnesLogic */; };
-		E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,10 +76,7 @@
 		E2BA0EFF26EBB3DC0084D232 /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
 		E2BA0F0226EBC2420084D232 /* CoursesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesRepository.swift; sourceTree = "<group>"; };
 		E2BA0F0826EBCEE00084D232 /* String+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Html.swift"; sourceTree = "<group>"; };
-		E2BA0F1A26EFA0D30084D232 /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
-		E2BA0F1D26EFA0E20084D232 /* LessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonCell.xib; sourceTree = "<group>"; };
 		E2BA0F2026EFA3460084D232 /* LessonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRepository.swift; sourceTree = "<group>"; };
-		E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,9 +193,6 @@
 		E2BA0F0526EBCCDC0084D232 /* Downloader */ = {
 			isa = PBXGroup;
 			children = (
-				E2FDE0D226E7D1EA0017220A /* DownloaderViewController.swift */,
-				E2BA0F1A26EFA0D30084D232 /* LessonCell.swift */,
-				E2BA0F1D26EFA0E20084D232 /* LessonCell.xib */,
 				E2BA0F2026EFA3460084D232 /* LessonRepository.swift */,
 				E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */,
 				E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */,
@@ -291,7 +282,6 @@
 				E2BA0F0026EBB3DC0084D232 /* CourseCell.xib in Resources */,
 				E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */,
 				E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */,
-				E2BA0F1E26EFA0E20084D232 /* LessonCell.xib in Resources */,
 				E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */,
 				E2603A6F2704C99800C6E376 /* LessonDetailViewController.xib in Resources */,
 			);
@@ -315,10 +305,8 @@
 				E2BA0F0926EBCEE00084D232 /* String+Html.swift in Sources */,
 				E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */,
 				E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */,
-				E2FDE0D326E7D1EA0017220A /* DownloaderViewController.swift in Sources */,
 				E2BA0EF626EBB0950084D232 /* AppRouter.swift in Sources */,
 				E2603A6E2704C99800C6E376 /* LessonDetailViewController.swift in Sources */,
-				E2BA0F1B26EFA0D40084D232 /* LessonCell.swift in Sources */,
 				E2BA0F0326EBC2420084D232 /* CoursesRepository.swift in Sources */,
 				E2178BD02703B899007AB4C5 /* ListRouter.swift in Sources */,
 				E2178BD32703BD5C007AB4C5 /* LibraryRouter.swift in Sources */,

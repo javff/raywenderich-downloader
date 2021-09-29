@@ -11,24 +11,15 @@ import BussinnesLogic
 
 protocol LessonRepositoryProtocol {
     var progressSnapshot: ((ProgressTaskViewModel) -> Void)? { get set }
-    func getCourseLessons(courseId: Int, quality: Quality)
-    var courses: [Lesson] { get set }
-    var updated: (() -> Void)? { get set }
+    func getCourseLessons(courseId: Int, quality: Quality, completion: @escaping(Result<[Lesson], Error>) -> Void)
 }
 
-struct DownloaderViewModel {
-    let lesson: Lesson
-    var progress: Progress?
-    var current: Int
-    var remaining: Int
-    var total: Int
-    
-}
 
 class LessonRepository: LessonRepositoryProtocol {
     
     private let useCase = RayWenderCourseDownloader()
     var courses: [Lesson] = []
+    var downloadProgress: [Double] = []
     var updated: (() -> Void)?
     
     var progressSnapshot: ((ProgressTaskViewModel) -> Void)? {
@@ -36,16 +27,8 @@ class LessonRepository: LessonRepositoryProtocol {
             useCase.progressSnapshot = self.progressSnapshot
         }
     }
-    
-    func getCourseLessons(courseId: Int, quality: Quality) {
-        useCase.getCourseLessons(courseId: courseId, quality: quality) { (response) in
-            switch response {
-            case .success(let data):
-                self.courses = data
-                self.updated?()
-            case .failure:
-                break
-            }
-        }
+
+    func getCourseLessons(courseId: Int, quality: Quality, completion: @escaping (Result<[Lesson], Error>) -> Void) {
+        useCase.getCourseLessons(courseId: courseId, quality: quality, completion: completion)
     }
 }
