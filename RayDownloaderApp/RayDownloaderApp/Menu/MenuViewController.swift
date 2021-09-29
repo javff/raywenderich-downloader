@@ -10,22 +10,15 @@ import PureLayout
 
 class MenuViewController: UIViewController {
     
-    enum Option: String, CaseIterable {
-        case list
-        case library
-        case settings
-        case about
-    }
-    
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         return tableView
     }()
     
-    let options: [Option] = Option.allCases
-    let router: AppRouter
+    let options: [MenuOption] = MenuOption.allCases
+    let router: TabRouterProtocol
     
-    init(router: AppRouter) {
+    init(router: TabRouterProtocol) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
     }
@@ -65,12 +58,6 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = self.options[indexPath.row]
-        
-        switch selected {
-        case .library:
-            self.router.navigate(route: .library)
-        default:
-            break
-        }
+        self.router.navigate(route: selected.route)
     }
 }

@@ -7,7 +7,13 @@
 
 import Foundation
 
-enum Route {
-    case downloader(model: CourseFeedViewModel)
+enum TabRoute {
     case library
+    case list
+    case about
+    case settings
+}
+
+enum ListRoute {
+    case downloader(model: CourseFeedViewModel)
 }

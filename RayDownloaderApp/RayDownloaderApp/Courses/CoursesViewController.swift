@@ -11,11 +11,11 @@ import PureLayout
 class CoursesViewController: UIViewController {
     
     let courseView = CoursesView()
-    let router: AppRouterProtocol
+    let router: ListRouterProtocol
     let repository: CoursesRepositoryProtocol
     var courses: [CourseFeedViewModel] = []
     
-    init(router: AppRouterProtocol, repository: CoursesRepositoryProtocol) {
+    init(router: ListRouterProtocol, repository: CoursesRepositoryProtocol) {
         self.repository = repository
         self.router = router
         super.init(nibName: nil, bundle: nil)

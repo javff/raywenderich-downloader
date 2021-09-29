@@ -21,7 +21,9 @@ class LibraryRepository: LibraryRepositoryProtocol {
     func fetchItems(completion: @escaping (Result<[LibraryItem], Error>) -> Void) {
         guard let resourcePath = self.resourcePath.first else { return }
         let items = (try? fileManager.contentsOfDirectory(atPath: resourcePath)) ?? []
-        let result = items.map { LibraryItem(name: $0, url: URL(string: "\(resourcePath)/\($0)"))}
+        let result = items.filter { $0.first != "." }
+            .map { LibraryItem(name: $0, url: URL(string: "\(resourcePath)/\($0)")) }
+        
         completion(.success(result))
     }    
 }

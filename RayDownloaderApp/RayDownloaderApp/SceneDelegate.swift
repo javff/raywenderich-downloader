@@ -10,14 +10,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var router: AppRouter?
+    var router: TabRouterProtocol?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         guard let window = window else { return }
-        self.router = AppRouter(window: window)
-        self.router?.start()        
+       
+        if #available(macCatalyst 14.0, *) {
+            self.router = AppRouter(window: window)
+        } else {
+            // Fallback on earlier versions
+        }
+        self.router?.start()
     }
 
 }

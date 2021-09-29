@@ -13,7 +13,7 @@ protocol LibraryManagerProtocol {
 }
 
 
-@available(macOS 14.0, *)
+@available(macCatalyst 14.0, *)
 class LibraryCatalystManager: LibraryManagerProtocol {
   
     func openLibrary(url: URL) {

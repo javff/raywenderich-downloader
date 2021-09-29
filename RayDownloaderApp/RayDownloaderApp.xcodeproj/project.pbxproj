@@ -14,6 +14,9 @@
 		E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */; };
 		E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC027038599007AB4C5 /* LibraryItem.swift */; };
 		E2178BC52703ABA4007AB4C5 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */; };
+		E2178BC72703B02A007AB4C5 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC62703B02A007AB4C5 /* MenuOption.swift */; };
+		E2178BD02703B899007AB4C5 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BCF2703B899007AB4C5 /* ListRouter.swift */; };
+		E2178BD32703BD5C007AB4C5 /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */; };
 		E283342F2703A966005644DF /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E283342E2703A966005644DF /* Dynamic */; };
 		E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEB26CB1F320036AA5C /* AppDelegate.swift */; };
 		E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FED26CB1F320036AA5C /* SceneDelegate.swift */; };
@@ -45,6 +48,9 @@
 		E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRepository.swift; sourceTree = "<group>"; };
 		E2178BC027038599007AB4C5 /* LibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
 		E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
+		E2178BC62703B02A007AB4C5 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		E2178BCF2703B899007AB4C5 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
+		E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
 		E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayDownloaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2927FEB26CB1F320036AA5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2927FED26CB1F320036AA5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */,
+				E2178BC62703B02A007AB4C5 /* MenuOption.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -179,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				E2BA0EF526EBB0950084D232 /* AppRouter.swift */,
+				E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */,
+				E2178BCF2703B899007AB4C5 /* ListRouter.swift */,
 				E2BA0EF826EBB0F60084D232 /* Route.swift */,
 			);
 			path = Router;
@@ -293,6 +302,7 @@
 				E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */,
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
+				E2178BC72703B02A007AB4C5 /* MenuOption.swift in Sources */,
 				E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */,
 				E2BA0EFD26EBB3D00084D232 /* CourseCell.swift in Sources */,
 				E2BA0F0926EBCEE00084D232 /* String+Html.swift in Sources */,
@@ -302,6 +312,8 @@
 				E2BA0EF626EBB0950084D232 /* AppRouter.swift in Sources */,
 				E2BA0F1B26EFA0D40084D232 /* LessonCell.swift in Sources */,
 				E2BA0F0326EBC2420084D232 /* CoursesRepository.swift in Sources */,
+				E2178BD02703B899007AB4C5 /* ListRouter.swift in Sources */,
+				E2178BD32703BD5C007AB4C5 /* LibraryRouter.swift in Sources */,
 				E2BA0EF926EBB0F60084D232 /* Route.swift in Sources */,
 				E2178BC52703ABA4007AB4C5 /* LibraryManager.swift in Sources */,
 				E2BA0F2126EFA3460084D232 /* LessonRepository.swift in Sources */,
