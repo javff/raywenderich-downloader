@@ -11,6 +11,7 @@ import PureLayout
 import BussinnesLogic
 import UIProgressTextView
 import Kingfisher
+import SPAlert
 
 class LessonDetailViewController: UIViewController {
     
@@ -86,11 +87,7 @@ class LessonDetailViewController: UIViewController {
         self.bindView()
         self.configureUseCase()
     }
-    
-    private func updateView() {
-        
-    }
-    
+
     private func setupView() {
         view.addSubview(containerProgressView)
         containerProgressView.autoPinEdgesToSuperviewEdges()
@@ -157,7 +154,8 @@ extension LessonDetailViewController: DownloaderDispacherDelegate {
     
     func dispacherFinishedDownload() {
         self.showProgress(false)
-        //TODO: - Mostrar descarga
+        let alertView = SPAlertView(title: "Thanks for waiting.", message: "download completed", preset: .heart)
+        alertView.present(duration: 3)
     }
     
     func downloaderDispacher(_ dispacher: DownloaderDispacher, progress: Double, completed: Int, total: Int) {

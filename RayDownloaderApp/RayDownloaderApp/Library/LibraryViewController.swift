@@ -30,6 +30,10 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.fetchItems()
     }
     
@@ -55,7 +59,13 @@ class LibraryViewController: UIViewController {
 
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.items.count
+        if items.count == 0 {
+            tableView.setEmptyView(title: "Empty list.", message: "You haven't downloaded anything yet.")
+        } else {
+            tableView.restore()
+        }
+
+        return self.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

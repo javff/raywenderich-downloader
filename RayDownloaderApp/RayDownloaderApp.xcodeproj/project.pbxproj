@@ -19,6 +19,8 @@
 		E2603A6E2704C99800C6E376 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */; };
 		E2603A6F2704C99800C6E376 /* LessonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */; };
 		E2603A712704D3E300C6E376 /* Int+ConvertionTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */; };
+		E2603A7427051D5400C6E376 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = E2603A7327051D5400C6E376 /* SPAlert */; };
+		E2603A762705202F00C6E376 /* UITableView+EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A752705202F00C6E376 /* UITableView+EmptyView.swift */; };
 		E283342F2703A966005644DF /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E283342E2703A966005644DF /* Dynamic */; };
 		E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEB26CB1F320036AA5C /* AppDelegate.swift */; };
 		E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FED26CB1F320036AA5C /* SceneDelegate.swift */; };
@@ -52,6 +54,7 @@
 		E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
 		E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonDetailViewController.xib; sourceTree = "<group>"; };
 		E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ConvertionTime.swift"; sourceTree = "<group>"; };
+		E2603A752705202F00C6E376 /* UITableView+EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+EmptyView.swift"; sourceTree = "<group>"; };
 		E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayDownloaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2927FEB26CB1F320036AA5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2927FED26CB1F320036AA5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2603A7427051D5400C6E376 /* SPAlert in Frameworks */,
 				E283342F2703A966005644DF /* Dynamic in Frameworks */,
 				E2BA0F0D26EBCF820084D232 /* Kingfisher in Frameworks */,
 				E20998F926FE7348003C7B96 /* UIProgressTextView in Frameworks */,
@@ -205,6 +209,7 @@
 			children = (
 				E2BA0F0826EBCEE00084D232 /* String+Html.swift */,
 				E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */,
+				E2603A752705202F00C6E376 /* UITableView+EmptyView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				E2BA0F0C26EBCF820084D232 /* Kingfisher */,
 				E20998F826FE7348003C7B96 /* UIProgressTextView */,
 				E283342E2703A966005644DF /* Dynamic */,
+				E2603A7327051D5400C6E376 /* SPAlert */,
 			);
 			productName = RayDownloaderApp;
 			productReference = E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */;
@@ -264,6 +270,7 @@
 				E2BA0F0B26EBCF820084D232 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E2BA0F2326EFADA70084D232 /* XCRemoteSwiftPackageReference "M13ProgressSuite" */,
 				E283342D2703A966005644DF /* XCRemoteSwiftPackageReference "Dynamic" */,
+				E2603A7227051D5400C6E376 /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = E2927FE926CB1F320036AA5C /* Products */;
 			projectDirPath = "";
@@ -294,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2603A762705202F00C6E376 /* UITableView+EmptyView.swift in Sources */,
 				E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */,
 				E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */,
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
@@ -524,6 +532,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E2603A7227051D5400C6E376 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
 		E283342D2703A966005644DF /* XCRemoteSwiftPackageReference "Dynamic" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mhdhejazi/Dynamic.git";
@@ -562,6 +578,11 @@
 		E20998F826FE7348003C7B96 /* UIProgressTextView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIProgressTextView;
+		};
+		E2603A7327051D5400C6E376 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2603A7227051D5400C6E376 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
 		};
 		E283342E2703A966005644DF /* Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
