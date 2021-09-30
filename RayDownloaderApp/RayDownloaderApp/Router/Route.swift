@@ -15,5 +15,5 @@ enum TabRoute {
 }
 
 enum ListRoute {
-    case downloader(model: CourseFeedViewModel)
+    case lessonDetail(model: CourseFeedViewModel)
 }

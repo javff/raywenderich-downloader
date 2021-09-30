@@ -9,11 +9,10 @@ import Foundation
 
 public class RayWenderClient {
     
-    let service = FeedService()
-    
     public init() {}
     
-    public func getFeed(completion: @escaping(Result<FeedItemsModel,Error>) -> Void) {
+    public func getFeed(url: URL, completion: @escaping(Result<FeedItemsModel,Error>) -> Void) {
+        let service = FeedService(url: url)
         service.getFeed(completion: completion)
     }
 }

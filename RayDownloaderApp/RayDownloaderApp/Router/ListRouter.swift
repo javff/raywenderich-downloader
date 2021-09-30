@@ -29,7 +29,7 @@ class ListRouter: ListRouterProtocol {
     }
     
     func navigate(route: ListRoute) {
-        if case let .downloader(model: model) = route {
+        if case let .lessonDetail(model: model) = route {
             self.navigateToDownloader(model)
         }
     }

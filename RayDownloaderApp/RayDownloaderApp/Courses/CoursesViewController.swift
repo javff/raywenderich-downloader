@@ -55,6 +55,20 @@ class CoursesViewController: UIViewController {
         }
     }
     
+    private func fetchNextPage() {
+        courseView.startBottomSpinner()
+        repository.getNextPage { response in
+            self.courseView.stopBottomSpinner()
+            switch response {
+            case .success(let data):
+                self.courses += data
+                self.courseView.reloadData()
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension CoursesViewController: CoursesViewDataSource, CoursesViewDelegate {
@@ -64,6 +78,10 @@ extension CoursesViewController: CoursesViewDataSource, CoursesViewDelegate {
     }
     
     func didSelect(item: CourseFeedViewModel) {
-        router.navigate(route: .downloader(model: item))
+        router.navigate(route: .lessonDetail(model: item))
+    }
+    
+    func lastCellWillAppear() {
+        self.fetchNextPage()
     }
 }

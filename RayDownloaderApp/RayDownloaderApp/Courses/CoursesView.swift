@@ -16,6 +16,7 @@ protocol CoursesViewDataSource: AnyObject {
 
 protocol CoursesViewDelegate: AnyObject {
     func didSelect(item: CourseFeedViewModel)
+    func lastCellWillAppear()
 }
 
 struct CourseFeedViewModel {
@@ -30,7 +31,6 @@ struct CourseFeedViewModel {
 }
 
 class CoursesView: UIView {
-    
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -88,6 +88,19 @@ class CoursesView: UIView {
     func stopLoading() {
         activityIndicator.stopAnimating()
     }
+    
+    func startBottomSpinner() {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+    }
+    
+    func stopBottomSpinner() {
+        tableView.tableFooterView = nil
+        tableView.tableFooterView?.isHidden = true
+    }
 }
 
 extension CoursesView: UITableViewDataSource, UITableViewDelegate {
@@ -110,5 +123,11 @@ extension CoursesView: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = self.courses[indexPath.row]
         self.delegate?.didSelect(item: item)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == courses.count - 2 { // last cell
+            self.delegate?.lastCellWillAppear()
+        }
     }
 }

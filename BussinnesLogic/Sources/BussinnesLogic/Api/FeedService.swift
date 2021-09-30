@@ -10,15 +10,16 @@ import Foundation
 class FeedService: BaseService {
     
     override var baseURL: String {
-        return "https://api.raywenderlich.com/api/"
+        return self.url.absoluteString
     }
     
+    let url: URL
+    
+    init(url: URL) {
+        self.url = url
+    }
+
      func getFeed(completion: @escaping(Result<FeedItemsModel,Error>) -> Void) {
-        
-        guard let url = URL(string:"\(self.baseURL)/contents?filter%5Bcontent_types%5D%5B%5D=collection&filter%5Bcontent_types%5D%5B%5D=screencast&sort=-released_at") else {
-            completion(.failure(CustomErrorModel(reason: "getting url request")))
-            return
-        }
         
         guard let urlRequest = self.getUrlRequest(with: url) else {
             completion(.failure(CustomErrorModel(reason: "getting url request")))
