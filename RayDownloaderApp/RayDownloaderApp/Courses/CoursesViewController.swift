@@ -38,7 +38,6 @@ class CoursesViewController: UIViewController {
     private func setupView() {
         courseView.dataSource = self
         courseView.delegate = self
-        title = "Courses"
     }
     
     private func fetch() {

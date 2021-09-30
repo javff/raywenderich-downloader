@@ -472,6 +472,7 @@
 				CODE_SIGN_ENTITLEMENTS = RayDownloaderApp/RayDownloaderApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WLKF7773X4;
 				INFOPLIST_FILE = RayDownloaderApp/Info.plist;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,6 +495,7 @@
 				CODE_SIGN_ENTITLEMENTS = RayDownloaderApp/RayDownloaderApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WLKF7773X4;
 				INFOPLIST_FILE = RayDownloaderApp/Info.plist;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (

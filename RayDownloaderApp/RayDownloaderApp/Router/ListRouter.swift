@@ -25,6 +25,7 @@ class ListRouter: ListRouterProtocol {
         let repository = CoursesRepository()
         let viewController = CoursesViewController(router: self, repository: repository)
         self.navController?.setViewControllers([viewController], animated: true)
+        self.navController?.title = "Courses"
     }
     
     func navigate(route: ListRoute) {

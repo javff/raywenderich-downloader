@@ -31,7 +31,7 @@ class LibraryRouter: LibraryRouterProtocol {
         
         let repository = LibraryRepository()
         let libraryController = LibraryViewController(repository: repository, libraryManager: libraryManager)
-        libraryController.title = "Library"
         self.navController?.setViewControllers([libraryController], animated: true)
+        self.navController?.title = "Library"
     }
 }

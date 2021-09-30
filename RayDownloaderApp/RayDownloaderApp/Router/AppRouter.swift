@@ -41,8 +41,6 @@ class AppRouter: TabRouterProtocol {
         
         self.window.rootViewController = tabController
         self.window.makeKeyAndVisible()
-        listRouter.start()
-        libraryRouter.start()
     }
        
     

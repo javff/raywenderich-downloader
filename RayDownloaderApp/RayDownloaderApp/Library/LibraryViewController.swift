@@ -42,6 +42,7 @@ class LibraryViewController: UIViewController {
         tableView.autoPinEdgesToSuperviewEdges()
         tableView.delegate = self
         tableView.dataSource = self
+        title = "library"
     }
     
     private func fetchItems() {
