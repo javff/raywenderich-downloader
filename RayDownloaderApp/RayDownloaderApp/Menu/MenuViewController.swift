@@ -12,10 +12,28 @@ class MenuViewController: UIViewController {
     
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.allowsSelection = false
         return tableView
     }()
     
-    let options: [MenuOption] = MenuOption.allCases
+    let features: [String] = [
+        "Listado de cursos ✅",
+        "Paginación listado de cursos ✅",
+        "Ver Detalle de un curso ✅",
+        "Descargar un curso ✅",
+        "Galeria de descarga ✅",
+        "Abrir curso descargado en macOS ✅",
+        "Abrir curso descargado en iOS 👷🏽‍♂️🔨",
+        "Issue creación de carpeta una vez apretado el botón de descarga 👷🏽‍♂️🔨",
+        "Reproducir un curso dentro de la app 👷🏽‍♂️🔨",
+        "Search en listado de curso 👷🏽‍♂️🔨",
+        "Habilitar descarga en HD 👷🏽‍♂️🔨",
+        "Habilitar seteo de token de acceso custom 👷🏽‍♂️🔨",
+        "Implementar Cache local con Realm 👷🏽‍♂️🔨",
+        "Cache con KVS Usando Firebase 👷🏽‍♂️🔨",
+        "Crear pantalla about US👷🏽‍♂️🔨"
+    ]
+    
     let router: TabRouterProtocol
     
     init(router: TabRouterProtocol) {
@@ -33,13 +51,11 @@ class MenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-
     
     private func setupView() {
         view.addSubview(tableView)
         tableView.autoPinEdgesToSuperviewEdges()
-        self.navigationItem.title = "Menu"
+        self.navigationItem.title = "Roadmap"
     }
 
 }
@@ -47,17 +63,13 @@ class MenuViewController: UIViewController {
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return features.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = options[indexPath.row].rawValue
+        cell.textLabel?.text = features[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selected = self.options[indexPath.row]
-        self.router.navigate(route: selected.route)
     }
 }
