@@ -21,6 +21,7 @@
 		E2603A712704D3E300C6E376 /* Int+ConvertionTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */; };
 		E2603A7427051D5400C6E376 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = E2603A7327051D5400C6E376 /* SPAlert */; };
 		E2603A762705202F00C6E376 /* UITableView+EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A752705202F00C6E376 /* UITableView+EmptyView.swift */; };
+		E264709E2710A94D00A605B7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264709C2710A94D00A605B7 /* MenuView.swift */; };
 		E283342F2703A966005644DF /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = E283342E2703A966005644DF /* Dynamic */; };
 		E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FEB26CB1F320036AA5C /* AppDelegate.swift */; };
 		E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2927FED26CB1F320036AA5C /* SceneDelegate.swift */; };
@@ -55,6 +56,7 @@
 		E2603A6D2704C99800C6E376 /* LessonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonDetailViewController.xib; sourceTree = "<group>"; };
 		E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ConvertionTime.swift"; sourceTree = "<group>"; };
 		E2603A752705202F00C6E376 /* UITableView+EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+EmptyView.swift"; sourceTree = "<group>"; };
+		E264709C2710A94D00A605B7 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E2927FE826CB1F320036AA5C /* RayDownloaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayDownloaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2927FEB26CB1F320036AA5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2927FED26CB1F320036AA5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */,
+				E264709C2710A94D00A605B7 /* MenuView.swift */,
 				E2178BC62703B02A007AB4C5 /* MenuOption.swift */,
 			);
 			path = Menu;
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E264709E2710A94D00A605B7 /* MenuView.swift in Sources */,
 				E2603A762705202F00C6E376 /* UITableView+EmptyView.swift in Sources */,
 				E2927FF026CB1F320036AA5C /* ViewController.swift in Sources */,
 				E2178BBC270384A5007AB4C5 /* LibraryViewController.swift in Sources */,
