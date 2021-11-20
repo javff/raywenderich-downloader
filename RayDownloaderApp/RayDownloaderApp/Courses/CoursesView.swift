@@ -47,14 +47,13 @@ class CoursesView: UIView {
     weak var delegate: CoursesViewDelegate?
     weak var dataSource: CoursesViewDataSource?
     
-    
     var courses: [CourseFeedViewModel] {
         return dataSource?.getCourses() ?? []
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupView()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -114,20 +113,20 @@ extension CoursesView: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CourseCell else {
             fatalError("verifiy identifier")
         }
-        let data = self.courses[indexPath.row]
+        let data = courses[indexPath.row]
         cell.bindView(data)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let item = self.courses[indexPath.row]
-        self.delegate?.didSelect(item: item)
+        let item = courses[indexPath.row]
+        delegate?.didSelect(item: item)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == courses.count - 2 { // last cell
-            self.delegate?.lastCellWillAppear()
-        }
+        let lastCellIndex = courses.count - 2
+        guard indexPath.row == lastCellIndex else { return }
+        delegate?.lastCellWillAppear()
     }
 }

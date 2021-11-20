@@ -13,7 +13,6 @@
 		E2178BBF2703852D007AB4C5 /* LibraryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */; };
 		E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC027038599007AB4C5 /* LibraryItem.swift */; };
 		E2178BC52703ABA4007AB4C5 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */; };
-		E2178BC72703B02A007AB4C5 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BC62703B02A007AB4C5 /* MenuOption.swift */; };
 		E2178BD02703B899007AB4C5 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BCF2703B899007AB4C5 /* ListRouter.swift */; };
 		E2178BD32703BD5C007AB4C5 /* LibraryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */; };
 		E2603A6E2704C99800C6E376 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */; };
@@ -29,6 +28,7 @@
 		E2927FF326CB1F320036AA5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF126CB1F320036AA5C /* Main.storyboard */; };
 		E2927FF526CB1F340036AA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF426CB1F340036AA5C /* Assets.xcassets */; };
 		E2927FF826CB1F340036AA5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2927FF626CB1F340036AA5C /* LaunchScreen.storyboard */; };
+		E299D74D274914AD00529841 /* SearchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299D74C274914AD00529841 /* SearchContext.swift */; };
 		E2BA0EE626EBACFA0084D232 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EE526EBACFA0084D232 /* CoursesViewController.swift */; };
 		E2BA0EEB26EBAD500084D232 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E2BA0EEA26EBAD500084D232 /* PureLayout */; };
 		E2BA0EEE26EBAD740084D232 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EED26EBAD740084D232 /* CoursesView.swift */; };
@@ -49,7 +49,6 @@
 		E2178BBE2703852D007AB4C5 /* LibraryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRepository.swift; sourceTree = "<group>"; };
 		E2178BC027038599007AB4C5 /* LibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
 		E2178BC42703ABA4007AB4C5 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
-		E2178BC62703B02A007AB4C5 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		E2178BCF2703B899007AB4C5 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		E2178BD22703BD5C007AB4C5 /* LibraryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRouter.swift; sourceTree = "<group>"; };
 		E2603A6C2704C99800C6E376 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		E292800126CB1F8B0036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E292801126CB1FD80036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E292801626CB21050036AA5C /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E299D74C274914AD00529841 /* SearchContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContext.swift; sourceTree = "<group>"; };
 		E2A686A126E7C40E0078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A686A526E7C4A20078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A686A926E7C7A80078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +106,6 @@
 			children = (
 				E2178BB52700FEF5007AB4C5 /* MenuViewController.swift */,
 				E264709C2710A94D00A605B7 /* MenuView.swift */,
-				E2178BC62703B02A007AB4C5 /* MenuOption.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -182,6 +181,7 @@
 				E2BA0EFC26EBB3D00084D232 /* CourseCell.swift */,
 				E2BA0EFF26EBB3DC0084D232 /* CourseCell.xib */,
 				E2BA0F0226EBC2420084D232 /* CoursesRepository.swift */,
+				E299D74C274914AD00529841 /* SearchContext.swift */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -311,8 +311,8 @@
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
 				E2603A712704D3E300C6E376 /* Int+ConvertionTime.swift in Sources */,
-				E2178BC72703B02A007AB4C5 /* MenuOption.swift in Sources */,
 				E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */,
+				E299D74D274914AD00529841 /* SearchContext.swift in Sources */,
 				E2BA0EFD26EBB3D00084D232 /* CourseCell.swift in Sources */,
 				E2BA0F0926EBCEE00084D232 /* String+Html.swift in Sources */,
 				E2178BC127038599007AB4C5 /* LibraryItem.swift in Sources */,
@@ -476,14 +476,14 @@
 				CODE_SIGN_ENTITLEMENTS = RayDownloaderApp/RayDownloaderApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WLKF7773X4;
+				DEVELOPMENT_TEAM = 6J2WZFVZS5;
 				INFOPLIST_FILE = RayDownloaderApp/Info.plist;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = javff.RayDownloaderApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.javff.RayDownloaderApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -499,14 +499,14 @@
 				CODE_SIGN_ENTITLEMENTS = RayDownloaderApp/RayDownloaderApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WLKF7773X4;
+				DEVELOPMENT_TEAM = 6J2WZFVZS5;
 				INFOPLIST_FILE = RayDownloaderApp/Info.plist;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = javff.RayDownloaderApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.javff.RayDownloaderApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;

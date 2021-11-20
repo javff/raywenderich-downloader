@@ -38,17 +38,17 @@ class AppRouter: TabRouterProtocol {
             libraryController
         ]
                 
-        if #available(macCatalyst 14.0, *) {
-            let menuController = MenuViewController(router: self)
-            let splitController = UISplitViewController(style: .doubleColumn)
-            splitController.setViewController(tabController, for: .secondary)
-            splitController.setViewController(menuController, for: .primary)
-            self.window.rootViewController = splitController
-            self.window.makeKeyAndVisible()
-        } else {
+//        if #available(macCatalyst 14.0, *) {
+//            let menuController = MenuViewController(router: self)
+//            let splitController = UISplitViewController(style: .doubleColumn)
+//            splitController.setViewController(tabController, for: .secondary)
+//            splitController.setViewController(menuController, for: .primary)
+//            self.window.rootViewController = splitController
+//            self.window.makeKeyAndVisible()
+//        } else {
             self.window.rootViewController = tabController
             self.window.makeKeyAndVisible()
-        }
+//        }
     }
        
     

@@ -6,14 +6,25 @@
 //
 
 import UIKit
-import PureLayout
 
 class CoursesViewController: UIViewController {
     
     let courseView = CoursesView()
     let router: ListRouterProtocol
     let repository: CoursesRepositoryProtocol
-    var courses: [CourseFeedViewModel] = []
+    lazy var searchContext: RemoteSearchContext<CourseFeedViewModel> = {
+        let context = RemoteSearchContext<CourseFeedViewModel>(
+            placeholder: "Search Courses",
+            viewController: self,
+            debounceInterval: 1.5
+        )
+        context.delegate = self
+        context.updateChanges = { [weak self] in
+            guard let self = self else { return }
+            self.courseView.reloadData()
+        }
+        return context
+    }()
     
     init(router: ListRouterProtocol, repository: CoursesRepositoryProtocol) {
         self.repository = repository
@@ -27,6 +38,7 @@ class CoursesViewController: UIViewController {
     
     override func loadView() {
         self.view = courseView
+        navigationItem.title = "Courses"
     }
 
     override func viewDidLoad() {
@@ -38,6 +50,7 @@ class CoursesViewController: UIViewController {
     private func setupView() {
         courseView.dataSource = self
         courseView.delegate = self
+        searchContext.configure()
     }
     
     private func fetch() {
@@ -46,9 +59,8 @@ class CoursesViewController: UIViewController {
             self.courseView.stopLoading()
             switch response {
             case .success(let data):
-                self.courses = data
+                self.searchContext.items = data
                 self.courseView.reloadData()
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -61,9 +73,8 @@ class CoursesViewController: UIViewController {
             self.courseView.stopBottomSpinner()
             switch response {
             case .success(let data):
-                self.courses += data
+                self.searchContext.items += data
                 self.courseView.reloadData()
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -74,7 +85,7 @@ class CoursesViewController: UIViewController {
 extension CoursesViewController: CoursesViewDataSource, CoursesViewDelegate {
     
     func getCourses() -> [CourseFeedViewModel] {
-        return courses
+        return searchContext.currentItems
     }
     
     func didSelect(item: CourseFeedViewModel) {
@@ -83,5 +94,16 @@ extension CoursesViewController: CoursesViewDataSource, CoursesViewDelegate {
     
     func lastCellWillAppear() {
         self.fetchNextPage()
+    }
+}
+
+extension CoursesViewController: RemoteSearchContextDelegate {
+    func searchItems(with text: String) {
+        courseView.showLoading()
+        //TODO: CALL the correctly endpoint //
+        repository.getFeed { response in
+            self.courseView.stopLoading()
+            self.searchContext.updater?(response)
+        }
     }
 }
