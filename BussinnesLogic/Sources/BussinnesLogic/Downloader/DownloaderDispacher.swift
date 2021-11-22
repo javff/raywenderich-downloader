@@ -25,14 +25,14 @@ public class DownloaderDispacher: DownloaderDispacherProtocol {
     weak public var delegate: DownloaderDispacherDelegate?
     
     public init(url: URL) {
-        self.downloader = Downloader(folder: url)
+        downloader = Downloader(folder: url)
         
-        self.downloader.progressHandler = { [weak self] (progres, completed, total) in
+        downloader.progressHandler = { [weak self] (progres, completed, total) in
             guard let self = self else { return }
             self.delegate?.downloaderDispacher(self, progress: progres, completed: completed, total: total)
         }
         
-        self.downloader.finishHandler = { [weak self] in
+        downloader.finishHandler = { [weak self] in
             guard let self = self else { return }
             self.delegate?.dispacherFinishedDownload()
         }
