@@ -32,10 +32,13 @@ class AppRouter: TabRouterProtocol {
         let libraryRouter = LibraryRouter(navController: libraryController)
         libraryRouter.start()
         
+        let aboutViewController = AboutViewController()
+        
         tabController = UITabBarController()
         tabController?.viewControllers = [
             detailController,
-            libraryController
+            libraryController,
+            aboutViewController
         ]
                 
 //        if #available(macCatalyst 14.0, *) {
