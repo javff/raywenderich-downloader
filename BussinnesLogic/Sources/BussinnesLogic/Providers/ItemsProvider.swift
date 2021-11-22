@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ItemsProviderProtocol: class {
+public protocol ItemsProviderProtocol: AnyObject {
     func getLessonsInfo(id: Int) -> [VideoModel]
     func getTutorialInfo(url: URL) -> [VideoModel]
     func getVideoInfo(videoId: Int) -> VideoInfoModel?

@@ -59,6 +59,7 @@ class SearchContext<T>: NSObject, UISearchBarDelegate, UISearchResultsUpdating {
             self.filterItems = []
             self.updateChanges?()
             self.applyMatching(with: searchText)
+            self.timer?.invalidate()
         }
     }
         

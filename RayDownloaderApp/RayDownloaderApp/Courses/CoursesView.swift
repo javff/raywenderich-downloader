@@ -80,6 +80,11 @@ class CoursesView: UIView {
         self.tableView.reloadData()
     }
     
+    func updateData() {
+        let indexSet = IndexSet(integer: 0)
+        self.tableView.reloadSections(indexSet, with: .fade)
+    }
+    
     func showLoading() {
         activityIndicator.startAnimating()
     }
@@ -97,7 +102,7 @@ class CoursesView: UIView {
     }
     
     func stopBottomSpinner() {
-        tableView.tableFooterView = nil
+        tableView.tableFooterView = UIView()
         tableView.tableFooterView?.isHidden = true
     }
 }

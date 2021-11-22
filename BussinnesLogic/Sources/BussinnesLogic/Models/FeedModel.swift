@@ -28,5 +28,5 @@ public struct FeedAttributes: Decodable {
 }
 
 public struct FeedLinks: Decodable {
-    public let next: String
+    public let next: String?
 }

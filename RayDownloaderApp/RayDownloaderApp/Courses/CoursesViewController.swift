@@ -16,12 +16,12 @@ class CoursesViewController: UIViewController {
         let context = RemoteSearchContext<CourseFeedViewModel>(
             placeholder: "Search Courses",
             viewController: self,
-            debounceInterval: 1.5
+            debounceInterval: 0.5
         )
         context.delegate = self
         context.updateChanges = { [weak self] in
             guard let self = self else { return }
-            self.courseView.reloadData()
+            self.courseView.updateData()
         }
         return context
     }()
@@ -43,8 +43,8 @@ class CoursesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
-        self.fetch()
+        setupView()
+        fetch()
     }
     
     private func setupView() {
@@ -55,7 +55,7 @@ class CoursesViewController: UIViewController {
     
     private func fetch() {
         courseView.showLoading()
-        repository.getFeed { (response) in
+        repository.getFeed(query: nil) { (response) in
             self.courseView.stopLoading()
             switch response {
             case .success(let data):
@@ -75,8 +75,8 @@ class CoursesViewController: UIViewController {
             case .success(let data):
                 self.searchContext.items += data
                 self.courseView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure:
+                break
             }
         }
     }
@@ -93,15 +93,18 @@ extension CoursesViewController: CoursesViewDataSource, CoursesViewDelegate {
     }
     
     func lastCellWillAppear() {
-        self.fetchNextPage()
+        guard !searchContext.isFilterApplied else {
+            courseView.stopBottomSpinner()
+            return
+        }
+        fetchNextPage()
     }
 }
 
 extension CoursesViewController: RemoteSearchContextDelegate {
     func searchItems(with text: String) {
         courseView.showLoading()
-        //TODO: CALL the correctly endpoint //
-        repository.getFeed { response in
+        repository.getFeed(query: text) { response in
             self.courseView.stopLoading()
             self.searchContext.updater?(response)
         }
