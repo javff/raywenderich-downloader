@@ -23,7 +23,13 @@ class LessonDetailViewController: UIViewController {
     private let model: CourseFeedViewModel
     private var repository: LessonRepositoryProtocol
     //TODO: Inyectar como dependencia para manejar ruta de descarga custom
-    private let dispacher: DownloaderDispacherProtocol
+    lazy var dispacher: DownloaderDispacherProtocol  = {
+        let sanitizeFolderName = model.name.replacingOccurrences(of: " ", with: "-")
+        let url = FileUtils.getDocumentsDirectoryForNewFile(folderName: sanitizeFolderName)
+        let dispacher = DownloaderDispacher(url: url)
+        dispacher.delegate = self
+        return dispacher
+    }()
 
     var lessons: [Lesson] = []
 
@@ -68,13 +74,9 @@ class LessonDetailViewController: UIViewController {
     
     init(model: CourseFeedViewModel, repository: LessonRepository) {
         self.model = model
-        let sanitizeFolderName = model.name.replacingOccurrences(of: " ", with: "-")
-        let url = FileUtils.getDocumentsDirectoryForNewFile(folderName: sanitizeFolderName)
-        self.dispacher = DownloaderDispacher(url: url)
         let repository = repository
         self.repository = repository
         super.init(nibName: "LessonDetailViewController", bundle: nil)
-        self.dispacher.delegate = self
     }
     
     required init?(coder: NSCoder) {
