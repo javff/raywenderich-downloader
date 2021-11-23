@@ -22,9 +22,7 @@
 
 Great! How do I download it?
 
-Download
-
-[Version 1.0.0](https://drive.google.com/drive/folders/1Z7T7Px4M5LkhqlSFARtdhyftR2D5gNYM?usp=sharing)
+[Version 1.0.0](https://drive.google.com/file/d/1r4dCviXc783MPsmszv-xL_zPeKyZ1MVo/view?usp=sharing)
 
 
 ## How to Use ?
