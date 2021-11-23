@@ -24,6 +24,8 @@ Great! How do I download it?
 
 Download
 
+[Version 1.0.0](https://drive.google.com/drive/folders/1Z7T7Px4M5LkhqlSFARtdhyftR2D5gNYM?usp=sharing)
+
 
 ## How to Use ?
 
