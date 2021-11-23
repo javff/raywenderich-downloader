@@ -37,13 +37,13 @@ class LessonDetailViewController: UIViewController {
         let progress = UIProgressTextView()
         progress.layer.cornerRadius = 15
         progress.layer.masksToBounds = true
-        progress.title = "Por favor espere..."
+        progress.title = "Please wait..."
         progress.showRandomFeedbacks([
             "Scraping...",
             "JAVFF",
-            "esto puede tardar 😅 🚀",
+            "this may take a while. 😅 🚀",
             "🧨 🚗 💥",
-            "Buscando info !!",
+            "looking for information !!",
             " 🐈‍⬛ 🪞 🪜",
             " 🍀 🌈 👑"
         ],
@@ -151,7 +151,7 @@ extension LessonDetailViewController: DownloaderDispacherDelegate {
 
     func dispacherStartDownload() {
         self.progressView.resetProgress()
-        self.progressView.title = "Descargando Archivos"
+        self.progressView.title = "Downloading Files"
     }
     
     func dispacherFinishedDownload() {
