@@ -31,6 +31,7 @@
 		E299D74D274914AD00529841 /* SearchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299D74C274914AD00529841 /* SearchContext.swift */; };
 		E299D753274C09C900529841 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299D751274C09C900529841 /* AboutViewController.swift */; };
 		E299D756274C0C3E00529841 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299D755274C0C3E00529841 /* AboutView.swift */; };
+		E299D758274C2AB000529841 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299D757274C2AB000529841 /* Color+Extensions.swift */; };
 		E2BA0EE626EBACFA0084D232 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EE526EBACFA0084D232 /* CoursesViewController.swift */; };
 		E2BA0EEB26EBAD500084D232 /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E2BA0EEA26EBAD500084D232 /* PureLayout */; };
 		E2BA0EEE26EBAD740084D232 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA0EED26EBAD740084D232 /* CoursesView.swift */; };
@@ -72,6 +73,7 @@
 		E299D74C274914AD00529841 /* SearchContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContext.swift; sourceTree = "<group>"; };
 		E299D751274C09C900529841 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		E299D755274C0C3E00529841 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		E299D757274C2AB000529841 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		E2A686A126E7C40E0078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A686A526E7C4A20078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A686A926E7C7A80078A022 /* CoreLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 				E2BA0F0826EBCEE00084D232 /* String+Html.swift */,
 				E2603A702704D3E300C6E376 /* Int+ConvertionTime.swift */,
 				E2603A752705202F00C6E376 /* UITableView+EmptyView.swift */,
+				E299D757274C2AB000529841 /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				E2927FEC26CB1F320036AA5C /* AppDelegate.swift in Sources */,
 				E2927FEE26CB1F320036AA5C /* SceneDelegate.swift in Sources */,
 				E299D753274C09C900529841 /* AboutViewController.swift in Sources */,
+				E299D758274C2AB000529841 /* Color+Extensions.swift in Sources */,
 				E2603A712704D3E300C6E376 /* Int+ConvertionTime.swift in Sources */,
 				E2178BB72700FEF5007AB4C5 /* MenuViewController.swift in Sources */,
 				E299D74D274914AD00529841 /* SearchContext.swift in Sources */,
