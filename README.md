@@ -1,4 +1,4 @@
-# raywenderich-downloader
+# raywenderlich-downloader
 
 <p>
   <img src="https://user-images.githubusercontent.com/18092648/143100144-95143fb1-c2ea-4678-b23e-2f2776c3bff9.png" title="MessageKit logo">
