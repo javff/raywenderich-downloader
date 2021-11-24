@@ -14,15 +14,14 @@
 
 ## Goals
 
-- The main goal of this project is to provide a content download mechanism. To later be able to watch and study offline.
-- Put into practice what has been learned.
-
+- The main goal of this project is to provide a content download mechanism, to later, be able to watch and study offline.
 
 ## Download
 
 Great! How do I download it?
 
-[Version 1.0.0](https://drive.google.com/file/d/1r4dCviXc783MPsmszv-xL_zPeKyZ1MVo/view?usp=sharing)
+
+WIP
 
 
 ## How to Use ?
