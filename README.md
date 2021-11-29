@@ -16,12 +16,38 @@
 
 - The main goal of this project is to provide a content download mechanism, to later, be able to watch and study offline.
 
-## Download
+## How to install
+
+- Download
 
 Great! How do I download it?
 
 
-WIP
+[Download](https://drive.google.com/file/d/1nArthHQ2XIcRWEIYMV7i4OeW8v_VJa6b/view?usp=sharing)
+
+
+- Install
+
+Open dmg file and move app into applications folder:
+
+![Captura de Pantalla 2021-11-29 a la(s) 09 29 12](https://user-images.githubusercontent.com/18092648/143868291-0b8c8b5c-77a2-4d58-a992-b5eeb9ab2867.png)
+
+
+Open app and press OK button.
+
+![Captura de Pantalla 2021-11-29 a la(s) 09 30 17](https://user-images.githubusercontent.com/18092648/143868440-440b2d2e-1761-42d0-87af-031b16a58e2c.png)
+
+
+Go to system preferences, in privacy and security.
+
+![Captura de Pantalla 2021-11-29 a la(s) 09 31 06](https://user-images.githubusercontent.com/18092648/143868558-bb2a181e-2494-4000-a3f9-99af44af346b.png)
+
+Authorize RayDownloaderApp.
+
+![Captura de Pantalla 2021-11-29 a la(s) 09 31 36](https://user-images.githubusercontent.com/18092648/143868636-3da00866-4740-40d6-94a8-be57200e65c7.png)
+
+
+Enjoy !!
 
 
 ## How to Use ?
